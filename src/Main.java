@@ -8,12 +8,14 @@ import java.util.Scanner;
 
 
 public class Main extends JPanel {
+	Image image1;
 
 // CLIENT - SERVER STUFF START
 
     public static boolean houseSend = false;
     public static int tempX;
     public static int tempY;
+
 
     public static String ipconnect;
     public static int tcpPort = 54555, udpPort = 54555;
@@ -34,7 +36,7 @@ public class Main extends JPanel {
 
 	 Grid gamemap = new Grid(100,100);
 	 static boolean updater = false;
-	
+
 
 
 	DiceRoller dice = new DiceRoller();
@@ -57,16 +59,18 @@ public class Main extends JPanel {
 	 }
 			 
 		 }
-		 
 
-		
+
+		 ImageIcon background = new ImageIcon("images/background.jpg");
+		  image1 = background.getImage();
+
 		 dice.Roll();
 
-	       
+
 		 Grid gamemap = new Grid(200,200);
 
 		 
-		
+
 	
 	 }
 	 public void update(){
@@ -87,20 +91,22 @@ public class Main extends JPanel {
 	 
 	
 	    public void paint(Graphics g) {
-		 
-	
+			g.drawImage(image1, 0, 0, null);
+
 		 // this for loop draws each hexagon
 		 for(int k =0; k<5;k++){
-			 for(int l =0; l<5;l++){		 
+			 for(int l =0; l<5;l++){
+
 		 // some of the places in the array are empty because of the 3,4,5,4,3 structure of the game map
 		if(gamemap.hexarray[k][l]!=null){
+
 			 this.addMouseListener(gamemap.hexarray[k][l]);
 		 gamemap.hexarray[k][l].paint(g);
-		 
+
 		
 				 }
 			 }
-			 
+
 		 }
 		 
 		 //buy.paint(g);//paints the circles for buttons

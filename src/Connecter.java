@@ -11,8 +11,6 @@ public class Connecter extends Listener {
 
 	public void connect(String ip) throws IOException {
 		// SERVER CLIENT STUFF
-
-		// Svennebananen
 		client = new Client();
 		Kryo kryo = client.getKryo();
 		kryo.register(HousePosX.class);

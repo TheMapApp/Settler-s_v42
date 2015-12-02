@@ -2,6 +2,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.Image;
 
 import javax.swing.JPanel;
 
@@ -20,6 +21,7 @@ public class Hexagon extends JPanel implements MouseListener {
 	int[] shapex = new int[6];
 	int[] shapey = new int[6];
 
+	Image image;
 	int r = 57;
 	Middlepoint[] middlearray = new Middlepoint[6];
 	  
@@ -49,8 +51,8 @@ public class Hexagon extends JPanel implements MouseListener {
 
 	@Override
 	public void paint(Graphics g) {
-		
-		
+
+
 		for (int l = 0; l < 6; l++) {
 			for(int i=0 ;i<10;i++){
 			if(Grid.hus[i]!=null){
@@ -68,6 +70,30 @@ public class Hexagon extends JPanel implements MouseListener {
 
 		if (itson == true) {
 			g.setColor(_color);
+			g.fillPolygon(shapex, shapey, 6);
+		}
+		else {
+
+			if(returnNoFromServer()==1){
+				g.setColor(wheat);
+			}
+			if(returnNoFromServer()==2){
+				g.setColor(stone);
+			}
+			if(returnNoFromServer()==3){
+				g.setColor(brick);
+			}
+			if(returnNoFromServer()==4){
+				g.setColor(desert);
+			}
+			if(returnNoFromServer()==5){
+				g.setColor(sheep);
+			}
+
+
+
+
+
 			g.fillPolygon(shapex, shapey, 6);
 
 		}
@@ -88,7 +114,7 @@ public class Hexagon extends JPanel implements MouseListener {
 				Grid.vej[2].paint(g);
 			}
 		}
-		
+		g.drawImage(image, _posy - 20 , _posx - 20, null);
 		
 	}
 
@@ -242,15 +268,13 @@ public class Hexagon extends JPanel implements MouseListener {
 
 		return dist;
 	}
-	
-	/*public void drawHex(int resource) {
-		if(resource==0) g.setColor(wheat);
-		else if (resource==1) g.setColor(stone);
-		else if (resource==2) g.setColor(brick);
-		else if (resource==3) g.setColor(wood);
-		else if (resource==4) g.setColor(desert);
-		
-	}*/
+
+
+	public int returnNoFromServer() {
+		int aux=3;
+		return aux;
+
+	}
 	
 	
 

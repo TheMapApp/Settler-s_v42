@@ -23,7 +23,7 @@ public void paint(Graphics g) {
 		// draws the hexagon
 	
 	 g.setColor(_color);
-    // g.fillRect(_xpos-10,_ypos-15, 30, 30);
+     g.fillRect(_xpos-10,_ypos-15, 30, 30);
 		g.drawRect(_xpos-10, _ypos-15,30,30);
 	
 		
