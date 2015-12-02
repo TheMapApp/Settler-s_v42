@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 	public class Buying extends JPanel implements MouseListener{
 
 		Trading trading; 
-	
+
 		Image image;
 		boolean window, window1, window2, window3;
 		 static boolean roadactive = false, houseactive = false, townactive = false;
@@ -33,15 +33,8 @@ import javax.swing.JPanel;
 		int width = 800;
 		int height = 600;
 		
-				
-			    g.setColor(Color.WHITE);
-			    g.fillOval(width - 100, height - 120, 70, 70);
-			    g.setColor(Color.WHITE);
-			    g.fillOval(width - 100, height - 200, 70, 70);
-			    g.setColor(Color.WHITE);
-			    g.fillOval(width - 100, height - 280, 70, 70);
-			    
-			   		
+
+        
 			    ImageIcon road = new ImageIcon("images/Road.png");
 			    image = road.getImage();
 			    g.drawImage(image, width - 100, height - 120 , null);
