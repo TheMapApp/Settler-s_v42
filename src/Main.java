@@ -14,18 +14,27 @@ public class Main extends JPanel {
 // CLIENT - SERVER STUFF START
 
     public static boolean houseSend = false;
-    public static int tempX;
-    public static int tempY;
+    public static int houseTempX;
+    public static int houseTempY;
     public static int houseX;
     public static int houseY;
-
-
-    public static String ipconnect;
-    public static int tcpPort = 54555, udpPort = 54555;
 
     public static boolean addHouseX = false;
     public static boolean addHouseY = false;
 
+    public static boolean roadSend = false;
+    public static int roadTempX1;
+    public static int roadTempX2;
+    public static int roadTempY1;
+    public static int roadTempY2;
+
+    public static boolean addRoadX1 = false;
+    public static boolean addRoadY1 = false;
+    public static boolean addRoadX2 = false;
+    public static boolean addRoadY2 = false;
+
+    public static String ipconnect;
+    public static int tcpPort = 54555, udpPort = 54555;
     public boolean connected = true;
 
     // CLIENT - SERVER STUFF END
@@ -98,10 +107,14 @@ public class Main extends JPanel {
 		}
 
          while (houseSend) {
-             System.out.println(tempX  + " " + tempY);
-             System.out.println("Trying to send package");
-             connect.sendPacket(tempX, tempY);
+             System.out.println("Trying to send house package");
+             connect.sendHousePacket(houseTempX, houseTempY);
              houseSend = false;
+         }
+         while (roadSend) {
+             System.out.println("Trying to send road package");
+             connect.sendRoadPacket(roadTempX1, roadTempX2, roadTempY1, roadTempY2);
+             roadSend = false;
          }
          while(addHouseX && addHouseY){
              Grid.hus[Grid.housecounter] = new House(houseX, houseY);
@@ -109,6 +122,16 @@ public class Main extends JPanel {
              Grid.updater=true;
              addHouseX = false;
              addHouseY = false;
+         }
+         while(addRoadX1 && addRoadX2 && addRoadY1 && addRoadY2){
+             System.out.println("Trying to draw road");
+             Grid.vej[Grid.roadcounter] = new Road(roadTempX1, roadTempY1, roadTempX2, roadTempY2);
+             Grid.roadcounter += 1;
+             Grid.updater = true;
+             addRoadX1 = false;
+             addRoadX2 = false;
+             addRoadY1 = false;
+             addRoadY2 = false;
          }
 	 }
 	 

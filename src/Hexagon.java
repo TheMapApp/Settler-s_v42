@@ -137,8 +137,8 @@ public class Hexagon extends JPanel implements MouseListener {
 				middlearray[l].setlamp(true);
 				System.out.println("house placed on grid");
 
-                Main.tempX = Grid.hus[Grid.housecounter]._xpos;
-                Main.tempY = Grid.hus[Grid.housecounter]._ypos;
+                Main.houseTempX = Grid.hus[Grid.housecounter]._xpos;
+                Main.houseTempY = Grid.hus[Grid.housecounter]._ypos;
                 Main.houseSend = true;
                 Grid.housecounter+=1;
                 Buying.houseactive = false;
@@ -166,12 +166,19 @@ public class Hexagon extends JPanel implements MouseListener {
 					Grid.vej[Grid.roadcounter] = new Road(pmx, pmy,mx,my);
 					System.out.println("second point set");
 					middlearray[l].setlamp(true);
-					Grid.roadcounter+=1;
 					middlearray[l].setlamp2(false);
 					pmx =0;
 					pmy =0;
+
+                    Main.roadTempX1 = Grid.vej[Grid.roadcounter]._xpos;
+                    Main.roadTempX2 = Grid.vej[Grid.roadcounter]._xpos2;
+                    Main.roadTempY1 = Grid.vej[Grid.roadcounter]._ypos;
+                    Main.roadTempY2 = Grid.vej[Grid.roadcounter]._ypos2;
+                    Main.roadSend = true;
+                    Grid.roadcounter+=1;
+
 					Buying.roadactive = false;
-					
+
 					
 					
 				}
