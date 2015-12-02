@@ -29,12 +29,18 @@ import javax.swing.JPanel;
 		}
 		   
 	public void paint(Graphics g) { 
-		
+
+        //width and height of the game map in order to use it for coordinates of buttons
 		int width = 800;
 		int height = 600;
-		
 
-        
+                //holding and drawing the turn button
+                ImageIcon turn = new ImageIcon("images/turn.png");
+                image = turn.getImage();
+                g.drawImage(image, width - 780 , height - 150, null);
+
+
+                //holding and drawing the road, settlement and city buttons respectively
 			    ImageIcon road = new ImageIcon("images/Road.png");
 			    image = road.getImage();
 			    g.drawImage(image, width - 100, height - 120 , null);
@@ -46,8 +52,9 @@ import javax.swing.JPanel;
 			    ImageIcon town = new ImageIcon("images/Town.png");
 			    image = town.getImage();
 			    g.drawImage(image, width - 100, height - 280 , null);
-			    
-			   
+
+
+                //if any of the road, settlement or city button is pressed, then draw a new window which is a pop-up serving as confirmation
 			    if(window==true){
 			    	//create a confirmation window
 				    g.setColor(Color.GRAY);
@@ -59,13 +66,13 @@ import javax.swing.JPanel;
 			  
 
 			    }
-			    
-	    
+
+
+
 }
 
 
 
-	 
 	public double dist(int x1, int x2, int y1, int y2 ){
 		double dist;
 		float xdif;
@@ -90,13 +97,17 @@ import javax.swing.JPanel;
 		@Override
 		public void mouseClicked(MouseEvent e) {
 
+            //mouse coordinates used for the road, settlement and city buttons
 			int mx = e.getX();
 			int my = e.getY();
 			
 			//buy a road
-		if (mx > 800 - 100 && mx < 800 && my > 600 - 120 && my < 600) {
-			System.out.println("3");
-			window = true;
+            //if the mouse is within these boundaries, then the confirmation window becomes true, i.e. pops up
+		    if (mx > 800 - 100 && mx < 800 && my > 600 - 120 && my < 600) {
+
+                System.out.println("3");
+
+            window = true;
 			window1 = true;
 			}
 
@@ -114,12 +125,10 @@ import javax.swing.JPanel;
 					window = false;
 					window1 = false;
 			}
-			
-		
-	
+
 			
 			//buy a settlement 
-		if (mx > 800 - 100 && mx < 800 && my > 600 - 200 && my < 600 - 120) {
+		    if (mx > 800 - 100 && mx < 800 && my > 600 - 200 && my < 600 - 120) {
 			System.out.println("2");
 			window = true;
 			window2 = true;
@@ -139,8 +148,9 @@ import javax.swing.JPanel;
 				window = false;
 				window2 = false;
 			
-			
 			}
+
+
 			//buy a city
 		if (mx > 800 - 100 && mx < 800 && my > 600 - 280 && my < 600 - 200) {
 			System.out.println("1");
@@ -159,6 +169,8 @@ import javax.swing.JPanel;
 				System.out.println("No");
 				window = false;
 		}
+
+
 							
 		}
 
@@ -170,7 +182,15 @@ import javax.swing.JPanel;
 
 		@Override
 		public void mouseReleased(MouseEvent e) {
-			// TODO Auto-generated method stub
+			//click button for turn
+            int coordX = e.getX();
+            int coordY = e.getY();
+
+            //if the button is released within these boundaries  then call the turning function
+            if (coordX > 800 - 780 && coordX < 100 && coordY > 600 - 150 && coordY < 520) {
+
+                System.out.print("TURN BITCH");
+            }
 
 		}
 
