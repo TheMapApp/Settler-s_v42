@@ -118,7 +118,7 @@ public class Main extends JPanel {
              roadSend = false;
          }
          while(addHouseX && addHouseY){
-             Grid.hus[Grid.housecounter] = new House(houseX, houseY);
+             Grid.hus[Grid.housecounter] = new House(houseX, houseY, 1);
              Grid.housecounter+=1;
              Grid.updater=true;
              addHouseX = false;

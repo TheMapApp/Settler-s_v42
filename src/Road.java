@@ -32,13 +32,6 @@ public void paint(Graphics g) {
 	g2.setStroke(new BasicStroke(10));
 
 	g2.draw(new Line2D.Float(_xpos, _ypos,_xpos2,_ypos2));
-		
-		
-			
-		
+
 		}
-
-
-
-
 	}

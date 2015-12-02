@@ -19,8 +19,9 @@ public class Connecter extends Listener {
         kryo.register(RoadX2.class);
         kryo.register(RoadY1.class);
         kryo.register(RoadY2.class);
+        kryo.register(PlayerColor.class);
 
-		client.start();
+        client.start();
 		client.connect(5000, ip, Main.tcpPort, Main.udpPort);
 		client.addListener(new Connecter());
 	}
@@ -56,6 +57,7 @@ public class Connecter extends Listener {
 		if (p instanceof HousePosX) {
             HousePosX packet = (HousePosX) p;
             Main.houseX = packet.x;
+            Player.setcolor(packet.x);
             Main.addHouseX = true;
             System.out.println("Received x");
         }
@@ -88,6 +90,11 @@ public class Connecter extends Listener {
             Main.roadTempY2 = packet.y2;
             Main.addRoadY2 = true;
             System.out.println("Received y2");
+        }
+        if (p instanceof PlayerColor) {
+            PlayerColor packet = (PlayerColor) p;
+            Player.setcolor(packet.playerColor);
+            System.out.println(packet.playerColor);
         }
 	}
 }
