@@ -9,11 +9,8 @@ public class House {
 	
 	House(int xpos,int ypos){
 		
-		
-		
 		_xpos = xpos;
 		_ypos = ypos;
-	
 	}
 	
 public void paint(Graphics g) {

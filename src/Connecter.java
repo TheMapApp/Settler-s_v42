@@ -27,19 +27,23 @@ public class Connecter extends Listener {
 		posY.y = tempY;
 		client.sendTCP(posX);
 		client.sendTCP(posY);
+        System.out.println("Sent package");
 	}
 
 	@Override
 	public void received(Connection c, Object p) {
 		if (p instanceof HousePosX) {
-
 			HousePosX packet = (HousePosX) p;
-			System.out.println(packet.x);
-			Grid.hus[1] = new House(packet.x, packet.x);
+			Main.houseX = packet.x;
+            Main.addHouseX = true;
+            System.out.println("Received x");
 		}
 		if (p instanceof HousePosY) {
 			HousePosY packet = (HousePosY) p;
-			System.out.println(packet.y);
-		}
+			Main.houseY = packet.y;
+            Main.addHouseY = true;
+            System.out.println("Received y");
+
+        }
 	}
 }

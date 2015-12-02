@@ -7,7 +7,7 @@ import java.awt.Image;
 import javax.swing.JPanel;
 
 public class Hexagon extends JPanel implements MouseListener {
-	
+
 	static int pmx=0;
 	static int pmy=0;
 	// the posistion of each hexagon
@@ -132,14 +132,17 @@ public class Hexagon extends JPanel implements MouseListener {
 			for (int l = 0; l < 6; l++) {
 				
 			if (dist(mx, shapex[l] , my, shapey[l]) <= 20) {
-				
-			
+
 				Grid.hus[Grid.housecounter] = new House(mx, my);
 				middlearray[l].setlamp(true);
-				Grid.housecounter+=1;
 				System.out.println("house placed on grid");
-				Buying.houseactive = false;
-			}
+
+                Main.tempX = Grid.hus[Grid.housecounter]._xpos;
+                Main.tempY = Grid.hus[Grid.housecounter]._ypos;
+                Main.houseSend = true;
+                Grid.housecounter+=1;
+                Buying.houseactive = false;
+		    	}
 			}
 		}
 		///++++++housebuyer+++++/////

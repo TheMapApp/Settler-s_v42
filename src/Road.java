@@ -10,13 +10,11 @@ public class Road {
 	Color _color = new Color(0,0,0);
 	
 	Road(int xpos, int ypos,int xpos2, int ypos2){
-		
-		
+
 		_xpos = xpos;
 		_ypos = ypos;
 		_xpos2 = xpos2;
 		_ypos2 = ypos2;
-	
 	}
 
 public void paint(Graphics g) {

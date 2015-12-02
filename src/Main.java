@@ -3,6 +3,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.IOException;
 import java.util.Scanner;
 
 
@@ -15,10 +16,17 @@ public class Main extends JPanel {
     public static boolean houseSend = false;
     public static int tempX;
     public static int tempY;
+    public static int houseX;
+    public static int houseY;
 
 
     public static String ipconnect;
     public static int tcpPort = 54555, udpPort = 54555;
+
+    public static boolean addHouseX = false;
+    public static boolean addHouseY = false;
+
+    public boolean connected = true;
 
     // CLIENT - SERVER STUFF END
 
@@ -43,7 +51,7 @@ public class Main extends JPanel {
 
 	
 	Buying buy = new Buying();
-    static Connecter connect = new Connecter();
+    Connecter connect = new Connecter();
 	
 	 Main(int width, int height) {
 
@@ -74,17 +82,33 @@ public class Main extends JPanel {
 	
 	 }
 	 public void update(){
-		
-		 
+
+         if(connected){
+             try {
+                 connect.connect("127.0.0.1");
+                 connected = false;
+             } catch (IOException e) {
+                 e.printStackTrace();
+             }
+         }
+
 		if(Grid.updater==true){
-	this.repaint();
-	Grid.updater=false;
+	    this.repaint();
+	    Grid.updater=false;
 		}
 
-         while (houseSend && gameStart) {
-             System.out.println("Packet sent");
+         while (houseSend) {
+             System.out.println(tempX  + " " + tempY);
+             System.out.println("Trying to send package");
              connect.sendPacket(tempX, tempY);
              houseSend = false;
+         }
+         while(addHouseX && addHouseY){
+             Grid.hus[Grid.housecounter] = new House(houseX, houseY);
+             Grid.housecounter+=1;
+             Grid.updater=true;
+             addHouseX = false;
+             addHouseY = false;
          }
 	 }
 	 
@@ -118,13 +142,12 @@ public class Main extends JPanel {
 	
 
 
-	 public static void main(String[] args) { 
+	 public static void main(String[] args) {
 //sizing of the gamemap
 	        int width = 800;
 	        int height = 600;
 
-
-	        JFrame frame = new JFrame("Settler's"); //create a new window and set title on window
+         JFrame frame = new JFrame("Settler's"); //create a new window and set title on window
 	        frame.setSize(width, height); //set size of window
 	        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //set the window to close when the cross in the corner is pressed
 	          
