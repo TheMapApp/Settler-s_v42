@@ -16,6 +16,7 @@ public class Connecter extends Listener {
 		kryo.register(HousePosX.class);
 		kryo.register(HousePosY.class);
 		client.start();
+		din rmoor 
 		client.connect(5000, ip, Main.tcpPort, Main.udpPort);
 		client.addListener(new Connecter());
 	}
