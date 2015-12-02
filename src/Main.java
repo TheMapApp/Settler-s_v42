@@ -36,6 +36,7 @@ public class Main extends JPanel {
     public static String ipconnect;
     public static int tcpPort = 54555, udpPort = 54555;
     public boolean connected = true;
+    Player player = new Player(2);
 
     // CLIENT - SERVER STUFF END
 
