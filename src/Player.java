@@ -16,6 +16,7 @@ public class Player {
 	{
 		playerId=id;
 		resources[5]=0;
+		setcolor(3);
 
 	}
 	//this function initialize an array at the start of the game
