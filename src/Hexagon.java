@@ -1,8 +1,6 @@
-import java.awt.Color;
-import java.awt.Graphics;
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.awt.Image;
 
 import javax.swing.JPanel;
 
@@ -51,7 +49,7 @@ public class Hexagon extends JPanel implements MouseListener {
 
 	@Override
 	public void paint(Graphics g) {
-
+		Graphics2D g2 = (Graphics2D) g;
 
 		for (int l = 0; l < 6; l++) {
 			for(int i=0 ;i<10;i++){
@@ -65,6 +63,7 @@ public class Hexagon extends JPanel implements MouseListener {
 
 		// draws the hexagon
 		g.setColor(_color2);
+		g2.setStroke(new BasicStroke(3));
 		g.drawPolygon(shapex, shapey, 6);
 		
 
@@ -107,11 +106,10 @@ public class Hexagon extends JPanel implements MouseListener {
 				Grid.hus[i].paint(g);
 			}
 			}
-			if (Grid.vej[1] != null) {
-				Grid.vej[1].paint(g);
-			}
-			if (Grid.vej[2] != null) {
-				Grid.vej[2].paint(g);
+			for(int i=0 ;i<10;i++) {
+				if (Grid.vej[i] != null) {
+					Grid.vej[i].paint(g);
+				}
 			}
 		}
 		g.drawImage(image, _posy - 20 , _posx - 20, null);

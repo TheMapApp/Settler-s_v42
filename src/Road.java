@@ -1,6 +1,8 @@
 import java.awt.Color;
 import java.awt.Graphics;
-
+import java.awt.geom.Line2D;
+import java.awt.*;
+import javax.swing.*;
 public class Road {
 	
 	int _xpos;
@@ -18,14 +20,18 @@ public class Road {
 	}
 
 public void paint(Graphics g) {
-		 
-		
+
+	Graphics2D g2 = (Graphics2D) g;
 		
 		// draws the hexagon
 	
 	 g.setColor(_color);
-	 
-		g.drawLine(_xpos, _ypos,_xpos2,_ypos2);
+
+		//g.drawLine(_xpos, _ypos,_xpos2,_ypos2);
+
+	g2.setStroke(new BasicStroke(10));
+
+	g2.draw(new Line2D.Float(_xpos, _ypos,_xpos2,_ypos2));
 		
 		
 			
