@@ -1,5 +1,4 @@
-import java.awt.Color;
-import java.awt.Graphics;
+import java.awt.*;
 
 public class Middlepoint {
 	
@@ -47,10 +46,10 @@ public class Middlepoint {
 	 }
 	
 	public void paint(Graphics g) {
-		
+		Graphics2D g2 = (Graphics2D) g;
 		// draws the ellipse
 		g.setColor(_color);
-	
+		g2.setStroke(new BasicStroke(3));
 		g.drawRect(_posx,_posy,15,15	);
 		
 		if(_lamp==true){
