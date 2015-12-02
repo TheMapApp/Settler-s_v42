@@ -36,7 +36,7 @@ public class Main extends JPanel {
     public static String ipconnect;
     public static int tcpPort = 54555, udpPort = 54555;
     public boolean connected = true;
-    Player player = new Player(2);
+    Player p1 = new Player(1);
 
     // CLIENT - SERVER STUFF END
 
@@ -134,6 +134,7 @@ public class Main extends JPanel {
              addRoadY1 = false;
              addRoadY2 = false;
          }
+
 	 }
 	 
 	 
@@ -160,7 +161,7 @@ public class Main extends JPanel {
 		 //buy.paint(g);//paints the circles for buttons
 
 		 buy.paint(g);//paints the circles for buttons
-		 
+		// p1.paintPlayer(g);
 		 
 	    }
 	

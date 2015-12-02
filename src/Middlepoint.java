@@ -53,7 +53,8 @@ public class Middlepoint {
 		g.drawRect(_posx,_posy,15,15	);
 		
 		if(_lamp==true){
-			g.setColor(new Color(30,30,255));	
+			g.setColor(new Color(30,30,255));
+			g2.setStroke(new BasicStroke(3));
 		g.fillRect(_posx,_posy,15,15);
 		
 		}
