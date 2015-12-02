@@ -14,6 +14,7 @@ public class Grid  implements MouseListener {
 	public static House[] hus = new House[10];
 	public static Road[] vej = new Road[10];
 	static int housecounter =1;
+	static int roadcounter =1;
 	
 	public Hexagon[][] hexarray = new Hexagon[5][5];
 

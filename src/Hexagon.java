@@ -163,9 +163,10 @@ public class Hexagon extends JPanel implements MouseListener {
 					middlearray[l].setlamp2(true);
 					
 					}else if(dist( mx, pmx , my, pmy) <= 70 && dist(mx, pmx , my, pmy) >= 30 && dist(mx, shapex[l] , my, shapey[l]) <= 20){
-					Grid.vej[1] = new Road(pmx, pmy,mx,my);
+					Grid.vej[Grid.roadcounter] = new Road(pmx, pmy,mx,my);
 					System.out.println("second point set");
 					middlearray[l].setlamp(true);
+					Grid.roadcounter+=1;
 					middlearray[l].setlamp2(false);
 					pmx =0;
 					pmy =0;
@@ -183,46 +184,7 @@ public class Hexagon extends JPanel implements MouseListener {
 		
 		
 		
-		
-/*
-		for (int l = 0; l < 6; l++) {
-			
-			//checks the distance to a cornerpoint
-				if (dist(mx, shapex[l] , my, shapey[l]) <= 20) {
-				//sets heaxgons to true if their middlepoint is pressed.
-					
-					itson = true;
 
-				//places house if there is no houses yet
-				if (Buying.houseactive&& Grid.hus[1] == null) {
-					Grid.hus[1] = new House(mx, my);
-					
-					Buying.houseactive = false;
-				}
-				//places road if there is a house
-				if (Buying.roadactive &&  dist( mx, Grid.hus[1]._xpos, my, Grid.hus[1]._ypos) <= 70){
-					Grid.vej[1] = new Road(mx, my,Grid.hus[1]._xpos,Grid.hus[1]._ypos);
-					//turns on the cornerpoint so it can be used later
-				middlearray[l].setlamp(true);
-				}
-				
-				
-				//makes the second road in a row
-				if(Buying.roadactive && dist( mx,Grid.vej[1]._xpos, my,Grid.vej[1]._ypos)<=70 ){
-					Grid.vej[2] = new Road(mx, my,Grid.vej[1]._xpos,Grid.vej[1]._ypos);
-					System.out.println("detvirker");
-					for (int u = 0; u < 6; u++) {
-						if (dist(mx, shapex[u] , my, shapey[u]) <= 20) {
-							middlearray[u].setlamp(true);
-						}
-						}
-				}
-				
-				
-		
-			}
-		}
-			*/	
 
 		Grid.updater = true;
 		// System.out.println("hey"+Grid.updater);
