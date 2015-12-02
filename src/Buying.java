@@ -35,8 +35,8 @@ import javax.swing.JPanel;
 		int height = 600;
 
                 //holding and drawing the turn button
-                ImageIcon turn = new ImageIcon("images/turn.png");
-                image = turn.getImage();
+                ImageIcon turns = new ImageIcon("images/turns.png");
+                image = turns.getImage();
                 g.drawImage(image, width - 780 , height - 150, null);
 
 
@@ -187,7 +187,7 @@ import javax.swing.JPanel;
             int coordY = e.getY();
 
             //if the button is released within these boundaries  then call the turning function
-            if (coordX > 800 - 780 && coordX < 100 && coordY > 600 - 150 && coordY < 520) {
+            if (coordX > 800 - 780 && coordX < 100 && coordY > 600 - 150 && coordY < 525) {
 
                 System.out.print("TURN BITCH");
             }
