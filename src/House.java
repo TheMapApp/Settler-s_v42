@@ -5,7 +5,7 @@ public class House {
 
 	int _xpos;
 	int _ypos;
-	Color _color= new Color(255,0,0);
+	Color _color= Player._Playercolor;
 	
 	House(int xpos,int ypos){
 		

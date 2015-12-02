@@ -10,13 +10,13 @@ public class Player {
 	private int playerId;
 	private boolean longestRoad;
 	private boolean Playersturn;
-	
+	static Color _Playercolor= new Color(255,0,0);
 	
 	public Player(int id)
 	{
 		playerId=id;
 		resources[5]=0;
-		
+
 	}
 	//this function initialize an array at the start of the game
 	//on the last position the player has the victory 
@@ -60,6 +60,24 @@ public class Player {
 			 if (PlayersTurn==1) return true;
 			 else return false;
 	}
+
+
+	public static void setcolor(int k )
+	{
+		if(k == 1) {
+			_Playercolor= new Color(232, 215, 45);
+		}
+		if(k == 2) {
+			_Playercolor= new Color(199, 9, 72);
+		}
+		if(k == 3) {
+			_Playercolor= new Color(0, 46, 199);
+		}
+		if(k == 4) {
+			_Playercolor= new Color(12, 190, 199);
+		}
+	}
+
 }
 	
 	

@@ -9,7 +9,7 @@ public class Road {
 	int _ypos;
 	int _xpos2;
 	int _ypos2;
-	Color _color = new Color(0,0,0);
+	Color _color = Player._Playercolor;
 	
 	Road(int xpos, int ypos,int xpos2, int ypos2){
 
@@ -38,4 +38,7 @@ public void paint(Graphics g) {
 		
 		}
 
-}
+
+
+
+	}
