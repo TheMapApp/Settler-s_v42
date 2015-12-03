@@ -178,7 +178,7 @@ public class Main extends JPanel {
 
 
 
-        if (p1.checkPlayersTurn(1) == true) {
+        if (p1.checkPlayersTurn(1) == true) { //checkPlayersTurn needs information from the server
             JFrame frame = new JFrame("Settler's"); //create a new window and set title on window
             frame.setSize(width, height); //set size of window
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //set the window to close when the cross in the corner is pressed

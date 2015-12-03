@@ -1,5 +1,4 @@
-import java.awt.Color;
-import java.awt.Graphics;
+import java.awt.*;
 
 import javax.swing.JFrame;
 
@@ -77,13 +76,16 @@ public class Player {
 
 
 	public void paintPlayer(Graphics g){
+		g.setColor(Color.white);
+		g.setFont(new Font("Cambria",Font.BOLD, 14));
 		g.drawString("Player "+ playerId +":",25,25);
-		g.drawString("Brick: "+resources[0],25,45);
-		g.drawString("Wheat: "+resources[4],25,65);
-		g.drawString("Stone: "+resources[3],25,85);
-		g.drawString("Ship: "+resources[2],25,105);
-		g.drawString("Wheat: "+resources[1],25,125);
-		g.drawString("Points: "+resources[5],25,145);
+		g.drawString("Brick: "+resources[0],25,40);
+		g.drawString("Wheat: "+resources[4],25,55);
+		g.drawString("Stone: "+resources[3],25,70);
+		g.drawString("Ship: "+resources[2],25,85);
+		g.drawString("Wheat: "+resources[1],25,100);
+		g.drawString("Points: "+resources[5],25,115);
+
 
 	}
 
