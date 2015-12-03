@@ -85,21 +85,24 @@ public class Hexagon extends JPanel implements MouseListener {
 				g.setColor( new Color(199, 21, 197));
 				g.fillPolygon(shapex, shapey, 6);
 			} else {
-
-			if (returnNoFromServer() == 1) {
-				g.setColor(wheat);
-			}
-			if (returnNoFromServer() == 2) {
-				g.setColor(stone);
-			}
-			if (returnNoFromServer() == 3) {
+			if (returnNoFromServer() == 0) {
 				g.setColor(brick);
 			}
+
+			if (returnNoFromServer() == 1) {
+				g.setColor(wood);
+			}
+			if (returnNoFromServer() == 2) {
+				g.setColor(wheat);
+			}
+			if (returnNoFromServer() == 3) {
+				g.setColor(sheep);
+			}
 			if (returnNoFromServer() == 4) {
-				g.setColor(desert);
+				g.setColor(stone);
 			}
 			if (returnNoFromServer() == 5) {
-				g.setColor(sheep);
+				g.setColor(desert);
 			}
 
 
