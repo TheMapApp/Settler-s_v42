@@ -96,55 +96,55 @@ public class Grid  implements MouseListener {
                         if (Main.roll == 2 && hexarray[n][k].diceval == 1) {
                             Player.resources[hexarray[n][k].colCode] += 1;
                         }
-                        if (Main.roll == 3 && hexarray[n][k].diceval == 2) {
+                        else if (Main.roll == 3 && hexarray[n][k].diceval == 2) {
                             Player.resources[hexarray[n][k].colCode] += 1;
                         }
-                        if (Main.roll == 3 && hexarray[n][k].diceval == 3) {
+                        else if (Main.roll == 3 && hexarray[n][k].diceval == 3) {
                             Player.resources[hexarray[n][k].colCode] += 1;
                         }
-                        if (Main.roll == 4 && hexarray[n][k].diceval == 4) {
+                        else if (Main.roll == 4 && hexarray[n][k].diceval == 4) {
                             Player.resources[hexarray[n][k].colCode] += 1;
                         }
-                        if (Main.roll == 4 && hexarray[n][k].diceval == 5) {
+                        else if (Main.roll == 4 && hexarray[n][k].diceval == 5) {
                             Player.resources[hexarray[n][k].colCode] += 1;
                         }
-                        if (Main.roll == 5 && hexarray[n][k].diceval == 6) {
+                        else if (Main.roll == 5 && hexarray[n][k].diceval == 6) {
                             Player.resources[hexarray[n][k].colCode] += 1;
                         }
-                        if (Main.roll == 5 && hexarray[n][k].diceval == 7) {
+                        else if (Main.roll == 5 && hexarray[n][k].diceval == 7) {
                             Player.resources[hexarray[n][k].colCode] += 1;
                         }
-                        if (Main.roll == 6 && hexarray[n][k].diceval == 8) {
+                        else if (Main.roll == 6 && hexarray[n][k].diceval == 8) {
                             Player.resources[hexarray[n][k].colCode] += 1;
                         }
-                        if (Main.roll == 6 && hexarray[n][k].diceval == 9) {
+                        else if (Main.roll == 6 && hexarray[n][k].diceval == 9) {
                             Player.resources[hexarray[n][k].colCode] += 1;
                         }
-                        if (Main.roll == 8 && hexarray[n][k].diceval == 10) {
+                        else if (Main.roll == 8 && hexarray[n][k].diceval == 10) {
                             Player.resources[hexarray[n][k].colCode] += 1;
                         }
                         if (Main.roll == 8 && hexarray[n][k].diceval == 11) {
                             Player.resources[hexarray[n][k].colCode] += 1;
                         }
-                        if (Main.roll == 9 && hexarray[n][k].diceval == 12) {
+                        else if (Main.roll == 9 && hexarray[n][k].diceval == 12) {
                             Player.resources[hexarray[n][k].colCode] += 1;
                         }
-                        if (Main.roll == 9 && hexarray[n][k].diceval == 13) {
+                       else  if (Main.roll == 9 && hexarray[n][k].diceval == 13) {
                             Player.resources[hexarray[n][k].colCode] += 1;
                         }
-                        if (Main.roll == 10 && hexarray[n][k].diceval == 14) {
+                        else if (Main.roll == 10 && hexarray[n][k].diceval == 14) {
                             Player.resources[hexarray[n][k].colCode] += 1;
                         }
-                        if (Main.roll == 10 && hexarray[n][k].diceval == 15) {
+                       else if (Main.roll == 10 && hexarray[n][k].diceval == 15) {
                             Player.resources[hexarray[n][k].colCode] += 1;
                         }
-                        if (Main.roll == 11 && hexarray[n][k].diceval == 16) {
+                        else if (Main.roll == 11 && hexarray[n][k].diceval == 16) {
                             Player.resources[hexarray[n][k].colCode] += 1;
                         }
-                        if (Main.roll == 11 && hexarray[n][k].diceval == 17) {
+                        else if (Main.roll == 11 && hexarray[n][k].diceval == 17) {
                             Player.resources[hexarray[n][k].colCode] += 1;
                         }
-                        if (Main.roll == 12 && hexarray[n][k].diceval == 18) {
+                        else if (Main.roll == 12 && hexarray[n][k].diceval == 18) {
                             Player.resources[hexarray[n][k].colCode] += 1;
                         }
                     }
