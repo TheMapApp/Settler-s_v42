@@ -137,6 +137,7 @@ public class Connecter extends Listener {
         if(p instanceof DiceRoll){
             DiceRoll packet = (DiceRoll) p;
             Main.roll = packet.dieRoll;
+            Main.bob = true;
             System.out.println("Received dieroll and it is: " + packet.dieRoll);
         }
 	}

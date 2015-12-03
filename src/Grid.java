@@ -4,7 +4,7 @@ import java.awt.event.MouseListener;
 
 import javax.swing.*;
 
-public class Grid  implements MouseListener {
+public class Grid {
 
     static boolean arrayReceived = false;
     static int[] shuffledArray = new int[18];
@@ -94,99 +94,64 @@ public class Grid  implements MouseListener {
 
                     if (hexarray[n][k].itson == true) {
                         if (Main.roll == 2 && hexarray[n][k].diceval == 1) {
-                            Player.resources[hexarray[n][k].colCode] += 1;
+                            Player.resources[hexarray[n][k].colCode-1] += 1;
                         }
                         else if (Main.roll == 3 && hexarray[n][k].diceval == 2) {
-                            Player.resources[hexarray[n][k].colCode] += 1;
+                            Player.resources[hexarray[n][k].colCode-1] += 1;
                         }
                         else if (Main.roll == 3 && hexarray[n][k].diceval == 3) {
-                            Player.resources[hexarray[n][k].colCode] += 1;
+                            Player.resources[hexarray[n][k].colCode-1] += 1;
                         }
                         else if (Main.roll == 4 && hexarray[n][k].diceval == 4) {
-                            Player.resources[hexarray[n][k].colCode] += 1;
+                            Player.resources[hexarray[n][k].colCode-1] += 1;
                         }
                         else if (Main.roll == 4 && hexarray[n][k].diceval == 5) {
-                            Player.resources[hexarray[n][k].colCode] += 1;
+                            Player.resources[hexarray[n][k].colCode-1] += 1;
                         }
                         else if (Main.roll == 5 && hexarray[n][k].diceval == 6) {
-                            Player.resources[hexarray[n][k].colCode] += 1;
+                            Player.resources[hexarray[n][k].colCode-1] += 1;
                         }
                         else if (Main.roll == 5 && hexarray[n][k].diceval == 7) {
-                            Player.resources[hexarray[n][k].colCode] += 1;
+                            Player.resources[hexarray[n][k].colCode-1] += 1;
                         }
                         else if (Main.roll == 6 && hexarray[n][k].diceval == 8) {
-                            Player.resources[hexarray[n][k].colCode] += 1;
+                            Player.resources[hexarray[n][k].colCode-1] += 1;
                         }
                         else if (Main.roll == 6 && hexarray[n][k].diceval == 9) {
-                            Player.resources[hexarray[n][k].colCode] += 1;
+                            Player.resources[hexarray[n][k].colCode-1] += 1;
                         }
                         else if (Main.roll == 8 && hexarray[n][k].diceval == 10) {
-                            Player.resources[hexarray[n][k].colCode] += 1;
+                            Player.resources[hexarray[n][k].colCode-1] += 1;
                         }
                         if (Main.roll == 8 && hexarray[n][k].diceval == 11) {
-                            Player.resources[hexarray[n][k].colCode] += 1;
+                            Player.resources[hexarray[n][k].colCode-1] += 1;
                         }
                         else if (Main.roll == 9 && hexarray[n][k].diceval == 12) {
-                            Player.resources[hexarray[n][k].colCode] += 1;
+                            Player.resources[hexarray[n][k].colCode-1] += 1;
                         }
                        else  if (Main.roll == 9 && hexarray[n][k].diceval == 13) {
-                            Player.resources[hexarray[n][k].colCode] += 1;
+                            Player.resources[hexarray[n][k].colCode-1] += 1;
                         }
                         else if (Main.roll == 10 && hexarray[n][k].diceval == 14) {
-                            Player.resources[hexarray[n][k].colCode] += 1;
+                            Player.resources[hexarray[n][k].colCode-1] += 1;
                         }
                        else if (Main.roll == 10 && hexarray[n][k].diceval == 15) {
-                            Player.resources[hexarray[n][k].colCode] += 1;
+                            Player.resources[hexarray[n][k].colCode-1] += 1;
                         }
                         else if (Main.roll == 11 && hexarray[n][k].diceval == 16) {
-                            Player.resources[hexarray[n][k].colCode] += 1;
+                            Player.resources[hexarray[n][k].colCode-1] += 1;
                         }
                         else if (Main.roll == 11 && hexarray[n][k].diceval == 17) {
-                            Player.resources[hexarray[n][k].colCode] += 1;
+                            Player.resources[hexarray[n][k].colCode-1] += 1;
                         }
                         else if (Main.roll == 12 && hexarray[n][k].diceval == 18) {
-                            Player.resources[hexarray[n][k].colCode] += 1;
+                            Player.resources[hexarray[n][k].colCode-1] += 1;
                         }
                     }
                 }
             }
         }
     }
-
-
-
-
-		@Override
-		public void mouseClicked(MouseEvent e) {
-			System.out.println("hey");
-			// TODO Auto-generated method stub
-			
-		}
-		@Override
-		public void mousePressed(MouseEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
-		@Override
-		public void mouseReleased(MouseEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
-		@Override
-		public void mouseEntered(MouseEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
-		@Override
-		public void mouseExited(MouseEvent e) {
-			// TODO Auto-generated method stub
-			
-		}	
-		
-		
-		
-				 
-			 
 }
 
 	

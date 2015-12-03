@@ -42,7 +42,7 @@ public class Main extends JPanel {
     public static boolean turnSend = false;
     public static int id;
     public static int roll;
-    boolean bob = true;
+    public static boolean bob = true;
 
     // CLIENT - SERVER STUFF END
 
@@ -89,6 +89,11 @@ public class Main extends JPanel {
 		  image1 = background.getImage();
 	 }
 	 public void update(){
+         //Ressource-fordeler
+      if (bob == true) {
+          gamemap.resourcedister();
+          bob = false;
+      }
          //System.out.println(turn);
          if(Grid.arrayReceived){
              gamemap.fill();
@@ -172,10 +177,6 @@ public class Main extends JPanel {
                 g.setColor(new Color(0,0,0, 168));
                 g.fillRect(0,0,800,600);
                 Grid.updater = true;
-                bob = true;
-            } else if (bob = true){
-                gamemap.resourcedister();
-                bob = false;
             }
             }
 
