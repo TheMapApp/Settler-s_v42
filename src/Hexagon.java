@@ -130,6 +130,11 @@ public class Hexagon extends JPanel implements MouseListener {
 				}
 			}
 				for (int i = 0; i < 10; i++) {
+					if (Grid.enemyhus[i] != null) {
+						Grid.enemyhus[i].paint(g);
+					}
+			}
+				for (int i = 0; i < 10; i++) {
 					if (Grid.by[i] != null) {
 						Grid.by[i].paint(g);
 					}
@@ -157,27 +162,50 @@ public class Hexagon extends JPanel implements MouseListener {
 
         if(Main.turn == true) {
             ///++++++housebuyer+++++/////
-            if (Buying.houseactive) {
-                //checks if you are pressing a cornerpoint
-                for (int l = 0; l < 6; l++) {
+			if(Grid.housecounter<2){
 
-                    if (dist(mx, shapex[l], my, shapey[l]) <= 20) {
+				if (Buying.houseactive) {
+					//checks if you are pressing a cornerpoint
+					for (int l = 0; l < 6; l++) {
+
+						if (dist(mx, shapex[l], my, shapey[l]) <= 20) {
 
 
-                        Grid.hus[Grid.housecounter] = new House(mx, my, 1);
-                        Grid.hus[Grid.housecounter].myhouse = true;
-                        middlearray[l].setlamp2(true);
-                        middlearray[l].setlamp(true);
-                        System.out.println("house placed on grid");
+							Grid.hus[Grid.housecounter] = new House(mx, my, 1);
+							Grid.hus[Grid.housecounter].myhouse = true;
+							middlearray[l].setlamp2(true);
+							middlearray[l].setlamp(true);
+							System.out.println("house placed on grid");
 
-                        Main.houseTempX = Grid.hus[Grid.housecounter]._xpos;
-                        Main.houseTempY = Grid.hus[Grid.housecounter]._ypos;
-                        Main.houseSend = true;
-                        Grid.housecounter += 1;
-                        Buying.houseactive = false;
-                    }
-                }
-            }
+							Main.houseTempX = Grid.hus[Grid.housecounter]._xpos;
+							Main.houseTempY = Grid.hus[Grid.housecounter]._ypos;
+							Main.houseSend = true;
+							Grid.housecounter += 1;
+							Buying.houseactive = false;
+						}
+					}
+				}
+			} else if (Buying.houseactive) {
+				//checks if you are pressing a cornerpoint
+				for (int l = 0; l < 6; l++) {
+
+					if (dist(mx, shapex[l], my, shapey[l]) <= 20 && middlearray[l]._lamp==true ) {
+
+
+						Grid.hus[Grid.housecounter] = new House(mx, my, 1);
+						Grid.hus[Grid.housecounter].myhouse = true;
+						middlearray[l].setlamp2(true);
+						middlearray[l].setlamp(true);
+						System.out.println("house placed on grid");
+
+						Main.houseTempX = Grid.hus[Grid.housecounter]._xpos;
+						Main.houseTempY = Grid.hus[Grid.housecounter]._ypos;
+						Main.houseSend = true;
+						Grid.housecounter += 1;
+						Buying.houseactive = false;
+					}
+				}
+			}
             ///++++++housebuyer+++++/////
 
 

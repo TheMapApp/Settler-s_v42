@@ -102,8 +102,8 @@ public class Main extends JPanel {
          }
          if(connected){
              try {
-                 //connect.connect("127.0.0.1");
-                 connect.connect("192.168.137.116");
+                 connect.connect("127.0.0.1");
+                 //connect.connect("192.168.137.116");
                  connected = false;
              } catch (IOException e) {
                  e.printStackTrace();
@@ -126,8 +126,8 @@ public class Main extends JPanel {
              roadSend = false;
          }
          while(addHouseX && addHouseY){
-             Grid.hus[Grid.housecounter] = new House(houseX, houseY, 1);
-             Grid.housecounter+=1;
+             Grid.enemyhus[Grid.enemyhousecounter] = new House(houseX, houseY, 1);
+             Grid.enemyhousecounter+=1;
              Grid.updater=true;
              addHouseX = false;
              addHouseY = false;

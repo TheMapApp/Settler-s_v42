@@ -27,11 +27,12 @@ public class House {
 		
 		
 		// draws the hexagon
-	
-	 g.setColor(_color);
-        if(enemyColor == 1){
-            g.setColor(new Color (100, 100, 0));
+        g.setColor(new Color (255, 25, 69));
+	// g.setColor(_color);
+        if(myhouse == false){
+            g.setColor(new Color (0, 1, 255));
         }
+       // g.setColor(_color);
      g.fillRect(_xpos-10,_ypos-15, 30, 30);
 		g.drawRect(_xpos-10, _ypos-15,30,30);
 	

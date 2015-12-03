@@ -13,9 +13,11 @@ public class Grid {
 	int _k;
 	static boolean updater = false;
 	public static House[] hus = new House[20];
+    public static House[] enemyhus = new House[20];
 	public static Town[] by = new Town[20];
 	public static Road[] vej = new Road[20];
-	static int housecounter =1;
+	static int housecounter =0;
+    static int enemyhousecounter =0;
 	static int towncounter =1;
 	static int roadcounter =1;
 	
