@@ -62,7 +62,7 @@ public class Hexagon extends JPanel implements MouseListener {
 		for (int l = 0; l < 6; l++) {
 			for (int i = 0; i < 10; i++) {
 				if (Grid.hus[i] != null) {
-					if (dist(Grid.hus[i]._xpos, shapex[l], Grid.hus[i]._ypos, shapey[l]) <= 20) {
+					if (dist(Grid.hus[i]._xpos, shapex[l], Grid.hus[i]._ypos, shapey[l]) <= 20 &&Grid.hus[i].myhouse == true ) {
 						itson = true;
 					}
 				}
@@ -81,65 +81,7 @@ public class Hexagon extends JPanel implements MouseListener {
 
 		//dicechecker
 
-		if(rolled !=Main.roll) {
-			rolled =Main.roll;
-			if ( itson == true){
-				if (Main.roll == 2 && diceval == 1) {
-					Player.resources[colCode] += 1;
-				}
-				if (Main.roll == 3 && diceval == 2) {
-					Player.resources[colCode] += 1;
-				}
-				if (Main.roll == 3 && diceval == 3) {
-					Player.resources[colCode] += 1;
-				}
-				if (Main.roll == 4 && diceval == 4) {
-					Player.resources[colCode] += 1;
-				}
-				if (Main.roll == 4 && diceval == 5) {
-					Player.resources[colCode] += 1;
-				}
-				if (Main.roll == 5 && diceval == 6) {
-					Player.resources[colCode] += 1;
-				}
-				if (Main.roll == 5 && diceval == 7) {
-					Player.resources[colCode] += 1;
-				}
-				if (Main.roll == 6 && diceval == 8) {
-					Player.resources[colCode] += 1;
-				}
-				if (Main.roll == 6 && diceval == 9) {
-					Player.resources[colCode] += 1;
-				}
-				if (Main.roll == 8 && diceval == 10) {
-					Player.resources[colCode] += 1;
-				}
-				if (Main.roll == 8 && diceval == 11) {
-					Player.resources[colCode] += 1;
-				}
-				if (Main.roll == 9 && diceval == 12) {
-					Player.resources[colCode] += 1;
-				}
-				if (Main.roll == 9 && diceval == 13) {
-					Player.resources[colCode] += 1;
-				}
-				if (Main.roll == 10 && diceval == 14) {
-					Player.resources[colCode] += 1;
-				}
-				if (Main.roll == 10 && diceval == 15) {
-					Player.resources[colCode] += 1;
-				}
-				if (Main.roll == 11 && diceval == 16) {
-					Player.resources[colCode] += 1;
-				}
-				if (Main.roll == 11 && diceval == 17) {
-					Player.resources[colCode] += 1;
-				}
-				if (Main.roll == 12 && diceval == 18) {
-					Player.resources[colCode] += 1;
-				}
-			}
-		}
+
 
 
 		// draws the hexagon
@@ -148,7 +90,7 @@ public class Hexagon extends JPanel implements MouseListener {
 		g.drawPolygon(shapex, shapey, 6);
 
 
-		if (itsontown == true) {
+		if (itsontown == true ) {
 			g.setColor(_color);
 			g.fillPolygon(shapex, shapey, 6);
 		} else if (itson == true) {
@@ -220,7 +162,7 @@ public class Hexagon extends JPanel implements MouseListener {
 
 
 						Grid.hus[Grid.housecounter] = new House(mx, my, 1);
-
+						Grid.hus[Grid.housecounter].myhouse = true;
 						middlearray[l].setlamp2(true);
 						middlearray[l].setlamp(true);
 						System.out.println("house placed on grid");

@@ -79,6 +79,83 @@ public class Grid  implements MouseListener {
             }
             updater = true;
 		}
+
+
+    public void resourcedister() {
+
+
+        for (int n = 0; n < 5; n++) {
+
+
+            for (int k = 0; k < 5; k++) {
+                // numbers[n + k] = new ImageIcon("images/" + n + ".png");
+                if (hexarray[n][k] != null) {
+
+
+                    if (hexarray[n][k].itson == true) {
+                        if (Main.roll == 2 && hexarray[n][k].diceval == 1) {
+                            Player.resources[hexarray[n][k].colCode] += 1;
+                        }
+                        if (Main.roll == 3 && hexarray[n][k].diceval == 2) {
+                            Player.resources[hexarray[n][k].colCode] += 1;
+                        }
+                        if (Main.roll == 3 && hexarray[n][k].diceval == 3) {
+                            Player.resources[hexarray[n][k].colCode] += 1;
+                        }
+                        if (Main.roll == 4 && hexarray[n][k].diceval == 4) {
+                            Player.resources[hexarray[n][k].colCode] += 1;
+                        }
+                        if (Main.roll == 4 && hexarray[n][k].diceval == 5) {
+                            Player.resources[hexarray[n][k].colCode] += 1;
+                        }
+                        if (Main.roll == 5 && hexarray[n][k].diceval == 6) {
+                            Player.resources[hexarray[n][k].colCode] += 1;
+                        }
+                        if (Main.roll == 5 && hexarray[n][k].diceval == 7) {
+                            Player.resources[hexarray[n][k].colCode] += 1;
+                        }
+                        if (Main.roll == 6 && hexarray[n][k].diceval == 8) {
+                            Player.resources[hexarray[n][k].colCode] += 1;
+                        }
+                        if (Main.roll == 6 && hexarray[n][k].diceval == 9) {
+                            Player.resources[hexarray[n][k].colCode] += 1;
+                        }
+                        if (Main.roll == 8 && hexarray[n][k].diceval == 10) {
+                            Player.resources[hexarray[n][k].colCode] += 1;
+                        }
+                        if (Main.roll == 8 && hexarray[n][k].diceval == 11) {
+                            Player.resources[hexarray[n][k].colCode] += 1;
+                        }
+                        if (Main.roll == 9 && hexarray[n][k].diceval == 12) {
+                            Player.resources[hexarray[n][k].colCode] += 1;
+                        }
+                        if (Main.roll == 9 && hexarray[n][k].diceval == 13) {
+                            Player.resources[hexarray[n][k].colCode] += 1;
+                        }
+                        if (Main.roll == 10 && hexarray[n][k].diceval == 14) {
+                            Player.resources[hexarray[n][k].colCode] += 1;
+                        }
+                        if (Main.roll == 10 && hexarray[n][k].diceval == 15) {
+                            Player.resources[hexarray[n][k].colCode] += 1;
+                        }
+                        if (Main.roll == 11 && hexarray[n][k].diceval == 16) {
+                            Player.resources[hexarray[n][k].colCode] += 1;
+                        }
+                        if (Main.roll == 11 && hexarray[n][k].diceval == 17) {
+                            Player.resources[hexarray[n][k].colCode] += 1;
+                        }
+                        if (Main.roll == 12 && hexarray[n][k].diceval == 18) {
+                            Player.resources[hexarray[n][k].colCode] += 1;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+
+
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			System.out.println("hey");

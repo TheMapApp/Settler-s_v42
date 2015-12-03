@@ -6,6 +6,7 @@ public class House {
 	int _xpos;
 	int _ypos;
     int enemyColor;
+    boolean myhouse = false;
 	Color _color= Player._Playercolor;
 	
 	/*House(int xpos,int ypos){
