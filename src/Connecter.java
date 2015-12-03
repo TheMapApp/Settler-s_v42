@@ -27,6 +27,7 @@ public class Connecter extends Listener {
         kryo.register(Ressources.class);
         kryo.register(ResType.class);
         kryo.register(Turn.class);
+        kryo.register(DiceRoll.class);
 
 
         client.start();
@@ -132,7 +133,11 @@ public class Connecter extends Listener {
             if(packet.turn == Main.id){
                 Main.turn = true;
             }
-            //Sætte ens egen tur til false
+        }
+        if(p instanceof DiceRoll){
+            DiceRoll packet = (DiceRoll) p;
+            Main.roll = packet.dieRoll;
+            System.out.println("Received dieroll and it is: " + packet.dieRoll);
         }
 	}
 }

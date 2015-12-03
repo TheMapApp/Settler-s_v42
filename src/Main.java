@@ -41,6 +41,7 @@ public class Main extends JPanel {
     public static boolean turn = false;
     public static boolean turnSend = false;
     public static int id;
+    public static int roll;
 
     // CLIENT - SERVER STUFF END
 
@@ -85,12 +86,9 @@ public class Main extends JPanel {
 
 		 ImageIcon background = new ImageIcon("images/background.jpg");
 		  image1 = background.getImage();
-
-		 dice.Roll();
-
 	 }
 	 public void update(){
-         System.out.println(turn);
+         //System.out.println(turn);
          if(Grid.arrayReceived){
              gamemap.fill();
              Grid.arrayReceived = false;
@@ -168,10 +166,11 @@ public class Main extends JPanel {
 
 		 buy.paint(g);//paints the circles for buttons
 		p1.paintPlayer(g);
+            Grid.updater = true;
             if(Main.turn == false){
                 g.setColor(new Color(0,0,0, 168));
                 g.fillRect(0,0,800,600);
-
+                Grid.updater = true;
             }
 	    }
 	
