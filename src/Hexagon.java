@@ -147,108 +147,105 @@ public class Hexagon extends JPanel implements MouseListener {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		
 
-		int mx = e.getX();
-		int my = e.getY();
-		
-		if(Main.turn == true) {
-			///++++++housebuyer+++++/////
-			if (Buying.houseactive) {
-				//checks if you are pressing a cornerpoint
-				for (int l = 0; l < 6; l++) {
-
-					if (dist(mx, shapex[l], my, shapey[l]) <= 20) {
-
-
-						Grid.hus[Grid.housecounter] = new House(mx, my, 1);
-						Grid.hus[Grid.housecounter].myhouse = true;
-						middlearray[l].setlamp2(true);
-						middlearray[l].setlamp(true);
-						System.out.println("house placed on grid");
-
-						Main.houseTempX = Grid.hus[Grid.housecounter]._xpos;
-						Main.houseTempY = Grid.hus[Grid.housecounter]._ypos;
-						Main.houseSend = true;
-						Grid.housecounter += 1;
-						Buying.houseactive = false;
-					}
-				}
-			}
-			///++++++housebuyer+++++/////
-
-
-			///++++++townbuyer+++++/////
-			if (Buying.townactive) {
-				//checks if you are pressing a cornerpoint
-				for (int l = 0; l < 6; l++) {
-
-					if (dist(mx, shapex[l], my, shapey[l]) <= 20 && middlearray[l]._lamp2 == true) {
-
-						Grid.by[Grid.towncounter] = new Town(mx, my);
-						System.out.println("town placed on grid");
-
-						//Main.houseTempX = Grid.hus[Grid.housecounter]._xpos;
-						//Main.houseTempY = Grid.hus[Grid.housecounter]._ypos;
-						//Main.houseSend = true;
-						Grid.towncounter += 1;
-						Buying.townactive = false;
-					}
-				}
-			}
-			///++++++townbuyer+++++/////
-
-			///+++roadbuyer+++////
-			if (Buying.roadactive) {
-
-				//System.out.println(""+mx+"  "+ pmx+"  " +"  "+ my+"  "+ pmy+"" );
-				if (pmx != 0) {
-					System.out.println(dist(mx, pmx, my, pmy));
-				}
-				for (int l = 0; l < 6; l++) {
-
-					if (dist(mx, shapex[l], my, shapey[l]) <= 20 && middlearray[l]._lamp == true && pmx == 0) {
-						pmx = shapex[l];
-						pmy = shapey[l];
-						System.out.println("first point set");
-						middlearray[l].setlamp2(true);
-
-					} else if (dist(mx, pmx, my, pmy) <= 70 && dist(mx, pmx, my, pmy) >= 30 && dist(mx, shapex[l], my, shapey[l]) <= 20) {
-						Grid.vej[Grid.roadcounter] = new Road(pmx, pmy, mx, my);
-						System.out.println("second point set");
-						middlearray[l].setlamp(true);
-						middlearray[l].setlamp2(false);
-						pmx = 0;
-						pmy = 0;
-
-						Main.roadTempX1 = Grid.vej[Grid.roadcounter]._xpos;
-						Main.roadTempX2 = Grid.vej[Grid.roadcounter]._xpos2;
-						Main.roadTempY1 = Grid.vej[Grid.roadcounter]._ypos;
-						Main.roadTempY2 = Grid.vej[Grid.roadcounter]._ypos2;
-						Main.roadSend = true;
-						Grid.roadcounter += 1;
-
-						Buying.roadactive = false;
-
-
-					}
-
-				}
-			}
-
-
-			///+++roadbuyer+++////
-
-
-			Grid.updater = true;
-			// System.out.println("hey"+Grid.updater);
-		}
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
+        int mx = e.getX();
+        int my = e.getY();
 
+        if(Main.turn == true) {
+            ///++++++housebuyer+++++/////
+            if (Buying.houseactive) {
+                //checks if you are pressing a cornerpoint
+                for (int l = 0; l < 6; l++) {
+
+                    if (dist(mx, shapex[l], my, shapey[l]) <= 20) {
+
+
+                        Grid.hus[Grid.housecounter] = new House(mx, my, 1);
+                        Grid.hus[Grid.housecounter].myhouse = true;
+                        middlearray[l].setlamp2(true);
+                        middlearray[l].setlamp(true);
+                        System.out.println("house placed on grid");
+
+                        Main.houseTempX = Grid.hus[Grid.housecounter]._xpos;
+                        Main.houseTempY = Grid.hus[Grid.housecounter]._ypos;
+                        Main.houseSend = true;
+                        Grid.housecounter += 1;
+                        Buying.houseactive = false;
+                    }
+                }
+            }
+            ///++++++housebuyer+++++/////
+
+
+            ///++++++townbuyer+++++/////
+            if (Buying.townactive) {
+                //checks if you are pressing a cornerpoint
+                for (int l = 0; l < 6; l++) {
+
+                    if (dist(mx, shapex[l], my, shapey[l]) <= 20 && middlearray[l]._lamp2 == true) {
+
+                        Grid.by[Grid.towncounter] = new Town(mx, my);
+                        System.out.println("town placed on grid");
+
+                        //Main.houseTempX = Grid.hus[Grid.housecounter]._xpos;
+                        //Main.houseTempY = Grid.hus[Grid.housecounter]._ypos;
+                        //Main.houseSend = true;
+                        Grid.towncounter += 1;
+                        Buying.townactive = false;
+                    }
+                }
+            }
+            ///++++++townbuyer+++++/////
+
+            ///+++roadbuyer+++////
+            if (Buying.roadactive) {
+
+                //System.out.println(""+mx+"  "+ pmx+"  " +"  "+ my+"  "+ pmy+"" );
+                if (pmx != 0) {
+                    System.out.println(dist(mx, pmx, my, pmy));
+                }
+                for (int l = 0; l < 6; l++) {
+
+                    if (dist(mx, shapex[l], my, shapey[l]) <= 20 && middlearray[l]._lamp == true && pmx == 0) {
+                        pmx = shapex[l];
+                        pmy = shapey[l];
+                        System.out.println("first point set");
+                        middlearray[l].setlamp2(true);
+
+                    } else if (dist(mx, pmx, my, pmy) <= 70 && dist(mx, pmx, my, pmy) >= 30 && dist(mx, shapex[l], my, shapey[l]) <= 20) {
+                        Grid.vej[Grid.roadcounter] = new Road(pmx, pmy, mx, my);
+                        System.out.println("second point set");
+                        middlearray[l].setlamp(true);
+                        middlearray[l].setlamp2(false);
+                        pmx = 0;
+                        pmy = 0;
+
+                        Main.roadTempX1 = Grid.vej[Grid.roadcounter]._xpos;
+                        Main.roadTempX2 = Grid.vej[Grid.roadcounter]._xpos2;
+                        Main.roadTempY1 = Grid.vej[Grid.roadcounter]._ypos;
+                        Main.roadTempY2 = Grid.vej[Grid.roadcounter]._ypos2;
+                        Main.roadSend = true;
+                        Grid.roadcounter += 1;
+
+                        Buying.roadactive = false;
+
+
+                    }
+
+                }
+            }
+
+
+            ///+++roadbuyer+++////
+
+
+            Grid.updater = true;
+            // System.out.println("hey"+Grid.updater);
+        }
 	}
 
 	@Override

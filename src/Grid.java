@@ -123,7 +123,7 @@ public class Grid {
                         else if (Main.roll == 8 && hexarray[n][k].diceval == 10) {
                             Player.resources[hexarray[n][k].colCode-1] += 1;
                         }
-                        if (Main.roll == 8 && hexarray[n][k].diceval == 11) {
+                       else if (Main.roll == 8 && hexarray[n][k].diceval == 11) {
                             Player.resources[hexarray[n][k].colCode-1] += 1;
                         }
                         else if (Main.roll == 9 && hexarray[n][k].diceval == 12) {

@@ -91,94 +91,91 @@ import javax.swing.JPanel;
 		@Override
 		public void mouseClicked(MouseEvent e) {
 
+
+		}
+
+		@Override
+		public void mousePressed(MouseEvent e) {
             //mouse coordinates used for the road, settlement and city buttons
-			int mx = e.getX();
-			int my = e.getY();
+            int mx = e.getX();
+            int my = e.getY();
             //if the button is clicked within these boundaries  then call the turning function
             if (mx > 800 - 780 && mx < 100 && my > 600 - 150 && my < 525) {
 
                 Main.turnSend = true;
             }
-			//buy a road
+            //buy a road
             //if the mouse is within these boundaries, then the confirmation window becomes true, i.e. pops up
-		    if (mx > 800 - 100 && mx < 800 && my > 600 - 120 && my < 600) {
+            if (mx > 800 - 100 && mx < 800 && my > 600 - 120 && my < 600) {
 
                 System.out.println("3");
 
-            window = true;
-			window1 = true;
-			}
+                window = true;
+                window1 = true;
+            }
 
-			if(window1 == true && mx > 255 && mx < 365 && my > 315 && my < 355){
-				System.out.println("yes");
-				if(trading.BuyARoad()==true){
-				roadactive =true;
-				}
-				window = false;
-				window1 = false;
-			} 
-			
-				if (mx > 435 && mx < 545 && my > 315 && my < 355){
-					System.out.println("No");
-					window = false;
-					window1 = false;
-			}
+            if(window1 == true && mx > 255 && mx < 365 && my > 315 && my < 355){
+                System.out.println("yes");
+                if(trading.BuyARoad()==true){
+                    roadactive =true;
+                }
+                window = false;
+                window1 = false;
+            }
 
-			
-			//buy a settlement 
-		    if (mx > 800 - 100 && mx < 800 && my > 600 - 200 && my < 600 - 120) {
-			System.out.println("2");
-			window = true;
-			window2 = true;
-		       
-			}
-			if(window2 == true && mx > 255 && mx < 365 && my > 315 && my < 355){
-				System.out.println("yes");
-				if(trading.BuySettlement()==true){
-					houseactive =true;
-					}
-				
-				window = false;
-				window2 = false;
-			}
-			if (mx > 435 && mx < 545 && my > 315 && my < 355){
-				System.out.println("No");
-				window = false;
-				window2 = false;
-			
-			}
+            if (mx > 435 && mx < 545 && my > 315 && my < 355){
+                System.out.println("No");
+                window = false;
+                window1 = false;
+            }
 
 
-			//buy a city
-		if (mx > 800 - 100 && mx < 800 && my > 600 - 280 && my < 600 - 200) {
-			System.out.println("1");
-			window = true;		
-			window3 = true;
-		
-		}
-			if(window3 == true && mx > 255 && mx < 365 && my > 315 && my < 355){
-				System.out.println("yes");
-				if(trading.BuyCity()==true){
-					townactive =true;
-					}
-				window = false;
-				window3 = false;
-			}
-			if (mx > 435 && mx < 545 && my > 315 && my < 355){
-				System.out.println("No");
-				window = false;
-				window3 = false;
-		}
+            //buy a settlement
+            if (mx > 800 - 100 && mx < 800 && my > 600 - 200 && my < 600 - 120) {
+                System.out.println("2");
+                window = true;
+                window2 = true;
+
+            }
+            if(window2 == true && mx > 255 && mx < 365 && my > 315 && my < 355){
+                System.out.println("yes");
+                if(trading.BuySettlement()==true){
+                    houseactive =true;
+                }
+
+                window = false;
+                window2 = false;
+            }
+            if (mx > 435 && mx < 545 && my > 315 && my < 355){
+                System.out.println("No");
+                window = false;
+                window2 = false;
+
+            }
 
 
-							
-		}
+            //buy a city
+            if (mx > 800 - 100 && mx < 800 && my > 600 - 280 && my < 600 - 200) {
+                System.out.println("1");
+                window = true;
+                window3 = true;
 
-		@Override
-		public void mousePressed(MouseEvent e) {
-			// TODO Auto-generated method stub
+            }
+            if(window3 == true && mx > 255 && mx < 365 && my > 315 && my < 355){
+                System.out.println("yes");
+                if(trading.BuyCity()==true){
+                    townactive =true;
+                }
+                window = false;
+                window3 = false;
+            }
+            if (mx > 435 && mx < 545 && my > 315 && my < 355){
+                System.out.println("No");
+                window = false;
+                window3 = false;
+            }
 
-		}
+        }
 
 		@Override
 		public void mouseReleased(MouseEvent e) {

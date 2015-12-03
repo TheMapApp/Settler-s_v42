@@ -74,15 +74,7 @@ public class Main extends JPanel {
 		 this.addMouseListener(buy);
 
 
-		 for(int k =0; k<5;k++){
-			 for(int l =0; l<5;l++){		 
-		 // some of the places in the array are empty because of the 3,4,5,4,3 structure of the game map
-		if(gamemap.hexarray[k][l]!=null){
-			 this.addMouseListener(gamemap.hexarray[k][l]);
-		}
-	 }
-			 
-		 }
+
 
 
 		 ImageIcon background = new ImageIcon("images/background.jpg");
@@ -97,6 +89,15 @@ public class Main extends JPanel {
          //System.out.println(turn);
          if(Grid.arrayReceived){
              gamemap.fill();
+             for(int k =0; k<5;k++){
+                 for(int l =0; l<5;l++){
+                     // some of the places in the array are empty because of the 3,4,5,4,3 structure of the game map
+                     if(gamemap.hexarray[k][l]!=null){
+                         this.addMouseListener(gamemap.hexarray[k][l]);
+                     }
+                 }
+
+             }
              Grid.arrayReceived = false;
          }
          if(connected){
@@ -145,13 +146,10 @@ public class Main extends JPanel {
              connect.endTurn();
              turnSend = false;
          }
-
 	 }
-	 
-	 
-	
+
 	    public void paint(Graphics g) {
-			g.drawImage(image1, 0, 0, null);
+        g.drawImage(image1, 0, 0, null);
 
 		 // this for loop draws each hexagon
 		 for(int k =0; k<5;k++){
@@ -159,16 +157,12 @@ public class Main extends JPanel {
 
 		 // some of the places in the array are empty because of the 3,4,5,4,3 structure of the game map
 		if(gamemap.hexarray[k][l]!=null){
-
-			 this.addMouseListener(gamemap.hexarray[k][l]);
-		 gamemap.hexarray[k][l].paint(g);
-
-		
+            //this.addMouseListener(gamemap.hexarray[k][l]);
+		    gamemap.hexarray[k][l].paint(g);
 				 }
 			 }
-
 		 }
-		 
+
 		 //buy.paint(g);//paints the circles for buttons
 
 		 buy.paint(g);//paints the circles for buttons
@@ -178,7 +172,7 @@ public class Main extends JPanel {
                 g.setColor(new Color(0,0,0, 168));
                 g.fillRect(0,0,800,600);
                 Grid.updater = true;
-            }
+                }
             }
 
 
@@ -245,9 +239,7 @@ public class Main extends JPanel {
             Thread.sleep(30); //stops this part of the program for 10 milliseconds to avoid the loop locking everything. Now the screen has time to update content etc.
         } catch (InterruptedException e) {
             e.printStackTrace();
+            }
         }
     }
-    }
-	
-	
 }

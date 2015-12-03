@@ -79,11 +79,11 @@ public class Player {
 		g.setColor(Color.white);
 		g.setFont(new Font("Cambria",Font.BOLD, 14));
 		g.drawString("Player "+ Main.id +":",25,25);
-		g.drawString("Brick: "+resources[0],25,40);
-		g.drawString("Wheat: "+resources[4],25,55);
-		g.drawString("Stone: "+resources[3],25,70);
-		g.drawString("Ship: "+resources[2],25,85);
-		g.drawString("Wheat: "+resources[1],25,100);
+		g.drawString("Wheat: "+resources[0],25,40);
+		g.drawString("Sheep: "+resources[4],25,55);
+		g.drawString("Wood: "+resources[3],25,70);
+		g.drawString("Brick: "+resources[2],25,85);
+		g.drawString("Stone: "+resources[1],25,100);
 		g.drawString("Points: "+resources[5],25,115);
 
 
