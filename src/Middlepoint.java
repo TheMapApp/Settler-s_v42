@@ -49,12 +49,12 @@ public class Middlepoint {
 		Graphics2D g2 = (Graphics2D) g;
 		// draws the ellipse
 		g.setColor(_color);
-		g2.setStroke(new BasicStroke(3));
+		g2.setStroke(new BasicStroke(2));
 		g.drawRect(_posx,_posy,15,15	);
 		
 		if(_lamp==true){
 			g.setColor(new Color(30,30,255));
-			g2.setStroke(new BasicStroke(3));
+			g2.setStroke(new BasicStroke(2));
 		g.fillRect(_posx,_posy,15,15);
 		
 		}

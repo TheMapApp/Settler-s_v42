@@ -4,7 +4,7 @@ import java.awt.Graphics;
 import javax.swing.JFrame;
 
 public class Player {
-	int [] resources= new int [6]; // an array that stores each player's resources and victory points
+	static int [] resources= new int [6]; // an array that stores each player's resources and victory points
 	// this is the constructor for the player
 	
 	private int playerId;
