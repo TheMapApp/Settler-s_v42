@@ -168,13 +168,11 @@ public class Main extends JPanel {
 
 		 buy.paint(g);//paints the circles for buttons
 		p1.paintPlayer(g);
-		 if(turn == false){
-             g.setColor(new Color(0,0,0,100));
-             g.drawRect(0,0,800,600);
+            if(Main.turn == false){
+                g.setColor(new Color(0,0,0, 168));
+                g.fillRect(0,0,800,600);
 
-         }
-
-
+            }
 	    }
 	
 
