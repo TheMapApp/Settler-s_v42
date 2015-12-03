@@ -49,7 +49,7 @@ public class Player {
 	}
 	//methods for checking if the player has the longest road
 	
-	public boolean checkLongestRoad() {
+	/*public boolean checkLongestRoad() {
 		return longestRoad;
 	}
 	public void changeLongestRoad() {
@@ -62,7 +62,7 @@ public class Player {
 			longestRoad=true;
 			resources[5]=+2;
 		}
-	}
+	} */
 		
 		public int getId (){
 			return playerId;
