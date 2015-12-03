@@ -23,11 +23,11 @@ public class Player {
 		resources[5]=0;
 		setcolor(3);
 
-		resources[0] = 2;//wheat
-		resources[1] = 2;//stone
-		resources[2] = 2;//brick
-		resources[3] = 2;//wood
-		resources[4] = 2;//sheep
+		resources[0] = 10;//wheat
+		resources[1] = 10;//stone
+		resources[2] = 10;//brick
+		resources[3] = 10;//wood
+		resources[4] = 10;//sheep
 		resources[5] = 0;//victory point
 
 	}

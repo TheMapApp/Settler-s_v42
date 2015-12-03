@@ -22,6 +22,15 @@ public class Main extends JPanel {
     public static boolean addHouseX = false;
     public static boolean addHouseY = false;
 
+    public static boolean townSend = false;
+    public static int townTempX;
+    public static int townTempY;
+    public static int townX;
+    public static int townY;
+
+    public static boolean addTownX = false;
+    public static boolean addTownY = false;
+
     public static boolean roadSend = false;
     public static int roadTempX1;
     public static int roadTempX2;
@@ -102,8 +111,8 @@ public class Main extends JPanel {
          }
          if(connected){
              try {
-                 //connect.connect("127.0.0.1");
-                 connect.connect("192.168.137.116");
+                 connect.connect("127.0.0.1");
+                 //connect.connect("192.168.137.116");
                  connected = false;
              } catch (IOException e) {
                  e.printStackTrace();
@@ -125,6 +134,11 @@ public class Main extends JPanel {
              connect.sendRoadPacket(roadTempX1, roadTempX2, roadTempY1, roadTempY2);
              roadSend = false;
          }
+         while(townSend){
+             System.out.println("Trying to send town package");
+             connect.sendTownPacket(townTempX, townTempY);
+             townSend = false;
+         }
          while(addHouseX && addHouseY){
              Grid.hus[Grid.housecounter] = new House(houseX, houseY, 1);
              Grid.housecounter+=1;
@@ -142,6 +156,16 @@ public class Main extends JPanel {
              addRoadY1 = false;
              addRoadY2 = false;
          }
+         while(addTownX && addTownY){
+             System.out.println("Trying to draw town at" + townTempX + "," + townTempY);
+             Grid.by[Grid.towncounter] = new Town(townTempX, townTempY);
+             System.out.println("town created");
+             Grid.towncounter += 1;
+             Grid.updater = true;
+             addTownY = false;
+             addTownX = false;
+         }
+
          while(turnSend && turn){
              connect.endTurn();
              turnSend = false;

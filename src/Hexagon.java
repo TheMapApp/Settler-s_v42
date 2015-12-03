@@ -189,11 +189,17 @@ public class Hexagon extends JPanel implements MouseListener {
                     if (dist(mx, shapex[l], my, shapey[l]) <= 20 && middlearray[l]._lamp2 == true) {
 
                         Grid.by[Grid.towncounter] = new Town(mx, my);
-                        System.out.println("town placed on grid");
+                        System.out.println("town placed on grid at" + mx + "," + my);
 
                         //Main.houseTempX = Grid.hus[Grid.housecounter]._xpos;
                         //Main.houseTempY = Grid.hus[Grid.housecounter]._ypos;
                         //Main.houseSend = true;
+
+                        //Main.townTempX = Grid.by[Grid.towncounter]._xpos;
+                        //Main.townTempY = Grid.by[Grid.towncounter]._ypos;
+                        Main.townTempX = Grid.by[Grid.towncounter]._xpos;
+                        Main.townTempY = Grid.by[Grid.towncounter]._ypos;
+                        Main.townSend = true;
                         Grid.towncounter += 1;
                         Buying.townactive = false;
                     }
