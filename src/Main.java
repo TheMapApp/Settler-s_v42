@@ -36,7 +36,7 @@ public class Main extends JPanel {
     public static String ipconnect;
     public static int tcpPort = 54555, udpPort = 54555;
     public boolean connected = true;
-    static Player p1 = new Player(1);
+    public static Player p1 = new Player(1);
 
     // CLIENT - SERVER STUFF END
 
@@ -66,8 +66,8 @@ public class Main extends JPanel {
 	 Main(int width, int height) {
 
 		 this.addMouseListener(buy);
-		 gamemap.fill();
-			
+
+
 		 for(int k =0; k<5;k++){
 			 for(int l =0; l<5;l++){		 
 		 // some of the places in the array are empty because of the 3,4,5,4,3 structure of the game map
@@ -84,15 +84,12 @@ public class Main extends JPanel {
 
 		 dice.Roll();
 
-
-		 Grid gamemap = new Grid(200,200);
-
-		 
-
-	
 	 }
 	 public void update(){
-
+         if(Grid.arrayReceived){
+             gamemap.fill();
+             Grid.arrayReceived = false;
+         }
          if(connected){
              try {
                  connect.connect("127.0.0.1");
@@ -161,7 +158,7 @@ public class Main extends JPanel {
 		 //buy.paint(g);//paints the circles for buttons
 
 		 buy.paint(g);//paints the circles for buttons
-		p1.paintPlayer(g);
+		//p1.paintPlayer(g);
 		 
 	    }
 	

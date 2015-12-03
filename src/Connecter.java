@@ -4,13 +4,16 @@ import com.esotericsoftware.kryo.Kryo;
 import com.esotericsoftware.kryonet.Client;
 import com.esotericsoftware.kryonet.Connection;
 import com.esotericsoftware.kryonet.Listener;
+import com.esotericsoftware.minlog.Log;
 
 public class Connecter extends Listener {
 
 	public Client client;
 
 	public void connect(String ip) throws IOException {
-		// SERVER CLIENT STUFF
+        Log.set(Log.LEVEL_DEBUG);
+
+        // SERVER CLIENT STUFF
 		client = new Client();
 		Kryo kryo = client.getKryo();
 		kryo.register(HousePosX.class);
@@ -20,6 +23,9 @@ public class Connecter extends Listener {
         kryo.register(RoadY1.class);
         kryo.register(RoadY2.class);
         kryo.register(PlayerColor.class);
+        kryo.register(int[].class);
+        kryo.register(Ressources.class);
+        kryo.register(ResType.class);
 
         client.start();
 		client.connect(5000, ip, Main.tcpPort, Main.udpPort);
@@ -54,6 +60,20 @@ public class Connecter extends Listener {
 
 	@Override
 	public void received(Connection c, Object p) {
+        if(p instanceof ResType){
+            ResType packet = (ResType) p;
+            Hexagon.resType = packet.resType;
+            System.out.println("ResType package " + packet.resType[0]);
+        }
+
+        if(p instanceof Ressources){
+            Ressources packet = (Ressources) p;
+            Grid.shuffledArray = packet.res;
+            Grid.arrayReceived = true;
+            System.out.println("Received shuffled array");
+            System.out.println(packet.res[2]);
+        }
+
 		if (p instanceof HousePosX) {
             HousePosX packet = (HousePosX) p;
             Main.houseX = packet.x;
@@ -94,7 +114,7 @@ public class Connecter extends Listener {
         if (p instanceof PlayerColor) {
             PlayerColor packet = (PlayerColor) p;
             Player.setcolor(packet.playerColor);
-            System.out.println(packet.playerColor);
+            System.out.println("Player ID is: " + packet.playerColor);
         }
 	}
 }

@@ -6,6 +6,9 @@ import javax.swing.JPanel;
 
 public class Hexagon extends JPanel implements MouseListener {
 
+    static int[] resType = new int[21];
+    public int colCode;
+    public int aux = 0;
 	static int pmx=0;
 	static int pmy=0;
 	// the posistion of each hexagon
@@ -73,19 +76,19 @@ public class Hexagon extends JPanel implements MouseListener {
 		}
 		else {
 
-			if(returnNoFromServer()==1){
+			if(colCode==1){
 				g.setColor(wheat);
 			}
-			if(returnNoFromServer()==2){
+			if(colCode==2){
 				g.setColor(stone);
 			}
-			if(returnNoFromServer()==3){
+			if(colCode==3){
 				g.setColor(brick);
 			}
-			if(returnNoFromServer()==4){
-				g.setColor(desert);
+			if(colCode==4){
+				g.setColor(wood);
 			}
-			if(returnNoFromServer()==5){
+			if(colCode==5){
 				g.setColor(sheep);
 			}
 
@@ -131,7 +134,7 @@ public class Hexagon extends JPanel implements MouseListener {
 				
 			if (dist(mx, shapex[l] , my, shapey[l]) <= 20) {
 
-				Grid.hus[Grid.housecounter] = new House(mx, my);
+				Grid.hus[Grid.housecounter] = new House(mx, my, 1);
 				middlearray[l].setlamp(true);
 				System.out.println("house placed on grid");
 
@@ -241,9 +244,11 @@ public class Hexagon extends JPanel implements MouseListener {
 
 
 	public int returnNoFromServer() {
-		int aux=3;
-		return aux;
-
+            int number = 0;
+            number = resType[aux];
+            aux += 1;
+        //if(aux > 18) aux = 0;
+		return number;
 	}
 	
 	

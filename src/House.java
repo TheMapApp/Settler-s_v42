@@ -8,12 +8,12 @@ public class House {
     int enemyColor;
 	Color _color= Player._Playercolor;
 	
-	House(int xpos,int ypos){
+	/*House(int xpos,int ypos){
 		
 		_xpos = xpos;
 		_ypos = ypos;
 	}
-
+*/
     House(int xpos,int ypos, int i){
         enemyColor = i;
         Player.setcolor(i);
