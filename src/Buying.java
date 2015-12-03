@@ -14,14 +14,9 @@ import javax.swing.JPanel;
 		Image image;
 		boolean window, window1, window2, window3;
 		 static boolean roadactive = false, houseactive = false, townactive = false;
+        Connecter connect = new Connecter();
 	
 		Buying(){
-			Player.resources[0] = 10;
-			Player.resources[1] = 10;
-			Player.resources[2] = 10;
-			Player.resources[3] = 10;
-			Player.resources[4] = 10;
-			Player.resources[5] = 10;
 
 			trading = new Trading();
 
@@ -163,10 +158,12 @@ import javax.swing.JPanel;
 					townactive =true;
 					}
 				window = false;
+				window3 = false;
 			}
 			if (mx > 435 && mx < 545 && my > 315 && my < 355){
 				System.out.println("No");
 				window = false;
+				window3 = false;
 		}
 
 
@@ -189,6 +186,7 @@ import javax.swing.JPanel;
             if (coordX > 800 - 780 && coordX < 100 && coordY > 600 - 150 && coordY < 525) {
 
                 System.out.print("TURN BITCH");
+                Main.turnSend = true;
             }
 
 		}

@@ -38,6 +38,10 @@ public class Main extends JPanel {
     public boolean connected = true;
     public static Player p1 = new Player(1);
 
+    public static boolean turn = false;
+    public static boolean turnSend = false;
+    public static int id;
+
     // CLIENT - SERVER STUFF END
 
     // LOBBY STUFF START
@@ -86,6 +90,7 @@ public class Main extends JPanel {
 
 	 }
 	 public void update(){
+         System.out.println(turn);
          if(Grid.arrayReceived){
              gamemap.fill();
              Grid.arrayReceived = false;
@@ -131,6 +136,10 @@ public class Main extends JPanel {
              addRoadY1 = false;
              addRoadY2 = false;
          }
+         while(turnSend && turn){
+             connect.endTurn();
+             turnSend = false;
+         }
 
 	 }
 	 
@@ -158,7 +167,7 @@ public class Main extends JPanel {
 		 //buy.paint(g);//paints the circles for buttons
 
 		 buy.paint(g);//paints the circles for buttons
-		//p1.paintPlayer(g);
+		p1.paintPlayer(g);
 		 
 	    }
 	
@@ -175,7 +184,7 @@ public class Main extends JPanel {
 
 
 
-        if (p1.checkPlayersTurn(1) == true) {
+        if (p1.checkPlayersTurn(1) == true) { //checkPlayersTurn needs information from the server
             JFrame frame = new JFrame("Settler's"); //create a new window and set title on window
             frame.setSize(width, height); //set size of window
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //set the window to close when the cross in the corner is pressed

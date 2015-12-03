@@ -26,6 +26,8 @@ public class Connecter extends Listener {
         kryo.register(int[].class);
         kryo.register(Ressources.class);
         kryo.register(ResType.class);
+        kryo.register(Turn.class);
+
 
         client.start();
 		client.connect(5000, ip, Main.tcpPort, Main.udpPort);
@@ -56,6 +58,14 @@ public class Connecter extends Listener {
         client.sendTCP(posY1);
         client.sendTCP(posY2);
         System.out.println("Sent road package");
+    }
+
+    public void endTurn(){
+        //send package til server om tur er slut
+        Turn tur = new Turn();
+        Main.turn = false;
+        client.sendTCP(tur);
+        System.out.println("Sending turn package");
     }
 
 	@Override
@@ -114,7 +124,15 @@ public class Connecter extends Listener {
         if (p instanceof PlayerColor) {
             PlayerColor packet = (PlayerColor) p;
             Player.setcolor(packet.playerColor);
+            Main.id = packet.playerColor;
             System.out.println("Player ID is: " + packet.playerColor);
+        }
+        if(p instanceof Turn){
+            Turn packet = (Turn) p;
+            if(packet.turn == Main.id){
+                Main.turn = true;
+            }
+            //Sætte ens egen tur til false
         }
 	}
 }
