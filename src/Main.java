@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class Main extends JPanel {
 	Image image1;
-
+//Does this work?
 // CLIENT - SERVER STUFF START
 
     public static boolean houseSend = false;
