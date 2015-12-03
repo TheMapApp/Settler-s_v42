@@ -101,7 +101,8 @@ public class Main extends JPanel {
          }
          if(connected){
              try {
-                 connect.connect("127.0.0.1");
+                 //connect.connect("127.0.0.1");
+                 connect.connect("192.168.137.116");
                  connected = false;
              } catch (IOException e) {
                  e.printStackTrace();

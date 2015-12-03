@@ -94,7 +94,11 @@ import javax.swing.JPanel;
             //mouse coordinates used for the road, settlement and city buttons
 			int mx = e.getX();
 			int my = e.getY();
-			
+            //if the button is clicked within these boundaries  then call the turning function
+            if (mx > 800 - 780 && mx < 100 && my > 600 - 150 && my < 525) {
+
+                Main.turnSend = true;
+            }
 			//buy a road
             //if the mouse is within these boundaries, then the confirmation window becomes true, i.e. pops up
 		    if (mx > 800 - 100 && mx < 800 && my > 600 - 120 && my < 600) {
@@ -178,17 +182,6 @@ import javax.swing.JPanel;
 
 		@Override
 		public void mouseReleased(MouseEvent e) {
-			//click button for turn
-            int coordX = e.getX();
-            int coordY = e.getY();
-
-            //if the button is released within these boundaries  then call the turning function
-            if (coordX > 800 - 780 && coordX < 100 && coordY > 600 - 150 && coordY < 525) {
-
-                System.out.print("TURN BITCH");
-                Main.turnSend = true;
-            }
-
 		}
 
 		@Override
