@@ -12,9 +12,9 @@ public class Grid {
 	int _i;
 	int _k;
 	static boolean updater = false;
-	public static House[] hus = new House[10];
-	public static Town[] by = new Town[10];
-	public static Road[] vej = new Road[10];
+	public static House[] hus = new House[20];
+	public static Town[] by = new Town[20];
+	public static Road[] vej = new Road[20];
 	static int housecounter =1;
 	static int towncounter =1;
 	static int roadcounter =1;

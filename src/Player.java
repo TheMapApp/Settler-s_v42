@@ -23,12 +23,12 @@ public class Player {
 		resources[5]=0;
 		setcolor(3);
 
-		resources[0] = 10;//brick
-		resources[1] = 10;//wood
-		resources[2] = 10;//wheat
-		resources[3] = 10;//ship
-		resources[4] = 10;//stone
-		resources[5] = 10;//victory point
+		resources[0] = 2;//wheat
+		resources[1] = 2;//stone
+		resources[2] = 2;//brick
+		resources[3] = 2;//wood
+		resources[4] = 2;//sheep
+		resources[5] = 0;//victory point
 
 	}
 	//this function initialize an array at the start of the game

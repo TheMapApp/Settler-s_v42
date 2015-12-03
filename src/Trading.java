@@ -15,8 +15,8 @@ public class Trading {
 	    
 	    public boolean BuyARoad(){
 		 
-		 if(Player.resources[0]>= 1 && Player.resources[1]>=1) { Player.resources[0]-= 1;
-		                                           Player.resources[1]-= 1;
+		 if(Player.resources[2]>= 1 && Player.resources[3]>=1) { Player.resources[2]-= 1;
+		                                           Player.resources[3]-= 1;
 		                                           System.out.println("bought road");
 		                                           return true;
 		 // checks if the player has enough resources for buying the road and updates the resources                                                           }
@@ -26,11 +26,12 @@ public class Trading {
 	 
 	 
 	 public boolean BuySettlement() {
-		 if( Player.resources[1]>= 1 &&  Player.resources[4]>= 1 &&  Player.resources[2]>=1)
+		 if( Player.resources[0]>= 1 &&  Player.resources[0]>= 1 &&  Player.resources[3]>=1 &&  Player.resources[4]>=1)
 		 {
-			 Player.resources[1]-= 1;
-			 Player.resources[4]-= 1;
+			 Player.resources[0]-= 1;
 			 Player.resources[2]-= 1;
+			 Player.resources[3]-= 1;
+			 Player.resources[4]-= 1;
 			 Player.resources[5]+= 1;
 			 
 			 System.out.println("bought a house");
@@ -46,10 +47,10 @@ public class Trading {
 	 
 	 public boolean BuyCity() {
 		 
-		 if( Player.resources[4]> 1 &&  Player.resources[3]>2)
+		 if( Player.resources[0]> 1 &&  Player.resources[1]>2)
 		 {
-			 Player.resources[4]-= 2;
-			 Player.resources[4]-= 3;
+			 Player.resources[0]-= 2;
+			 Player.resources[1]-= 3;
 			 Player.resources[5]+= 1;
 			return true;
 			// checks if the player has enough resources for buying the city and updates the resources
