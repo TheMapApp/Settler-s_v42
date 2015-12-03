@@ -320,12 +320,12 @@ public class Hexagon extends JPanel implements MouseListener {
 	}
 
 
-	public int returnNoFromServer() {
-            int number = 0;
-            number = resType[aux];
-            aux += 1;
+	public int returnNoFromServer() { // returns a number from the server
+            int number = 0; // initializes an integer with 0;
+            number = resType[aux]; // stores in number the value from aux position from resType array
+            aux += 1;// increments aux with 1
         //if(aux > 18) aux = 0;
-		return number;
+		return number; // return the number
 	}
 	
 	
