@@ -66,6 +66,7 @@ public class Grid  implements MouseListener {
                         if (hexarray[n][k] != null) {
 
                             hexarray[n][k].image = numbers[shuffledArray[p]].getImage();
+                            hexarray[n][k].diceval =shuffledArray[p];
                             hexarray[n][k].colCode = Hexagon.resType[p];
                             p = p + 1;
                             if (p >= 18) {
