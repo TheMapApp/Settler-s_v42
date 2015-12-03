@@ -163,10 +163,12 @@ import javax.swing.JPanel;
 					townactive =true;
 					}
 				window = false;
+				window3 = false;
 			}
 			if (mx > 435 && mx < 545 && my > 315 && my < 355){
 				System.out.println("No");
 				window = false;
+				window3 = false;
 		}
 
 

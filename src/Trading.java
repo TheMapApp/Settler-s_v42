@@ -48,9 +48,9 @@ public class Trading {
 		 
 		 if( Player.resources[4]> 1 &&  Player.resources[3]>2)
 		 {
-			 Player.resources[4]=- 2;
-			 Player.resources[4]=- 3;
-			 Player.resources[5]=+ 1;
+			 Player.resources[4]-= 2;
+			 Player.resources[4]-= 3;
+			 Player.resources[5]+= 1;
 			return true;
 			// checks if the player has enough resources for buying the city and updates the resources
 		 }

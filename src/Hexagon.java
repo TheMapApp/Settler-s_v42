@@ -12,6 +12,7 @@ public class Hexagon extends JPanel implements MouseListener {
 	int _posx;
 	int _posy;
 	boolean itson = false;
+	boolean itsontown = false;
 	Color _color = new Color(0, 100, 0);
 	Color _color2 = new Color(0, 0, 0);
 
@@ -52,45 +53,54 @@ public class Hexagon extends JPanel implements MouseListener {
 		Graphics2D g2 = (Graphics2D) g;
 
 		for (int l = 0; l < 6; l++) {
-			for(int i=0 ;i<10;i++){
-			if(Grid.hus[i]!=null){
-			if (dist(Grid.hus[i]._xpos, shapex[l] ,Grid.hus[i]._ypos, shapey[l]) <= 20) {
-			itson=true;
+			for (int i = 0; i < 10; i++) {
+				if (Grid.hus[i] != null) {
+					if (dist(Grid.hus[i]._xpos, shapex[l], Grid.hus[i]._ypos, shapey[l]) <= 20) {
+						itson = true;
+					}
+				}
 			}
+		}
+
+		for (int l = 0; l < 6; l++) {
+			for (int i = 0; i < 10; i++) {
+				if (Grid.by[i] != null) {
+					if (dist(Grid.by[i]._xpos, shapex[l], Grid.by[i]._ypos, shapey[l]) <= 20) {
+						itsontown = true;
+					}
+				}
 			}
-			}
-}
+		}
 
 		// draws the hexagon
 		g.setColor(_color2);
 		g2.setStroke(new BasicStroke(3));
 		g.drawPolygon(shapex, shapey, 6);
-		
 
-		if (itson == true) {
+
+		if (itsontown == true) {
 			g.setColor(_color);
 			g.fillPolygon(shapex, shapey, 6);
-		}
-		else {
+		} else if (itson == true) {
+				g.setColor( new Color(199, 21, 197));
+				g.fillPolygon(shapex, shapey, 6);
+			} else {
 
-			if(returnNoFromServer()==1){
+			if (returnNoFromServer() == 1) {
 				g.setColor(wheat);
 			}
-			if(returnNoFromServer()==2){
+			if (returnNoFromServer() == 2) {
 				g.setColor(stone);
 			}
-			if(returnNoFromServer()==3){
+			if (returnNoFromServer() == 3) {
 				g.setColor(brick);
 			}
-			if(returnNoFromServer()==4){
+			if (returnNoFromServer() == 4) {
 				g.setColor(desert);
 			}
-			if(returnNoFromServer()==5){
+			if (returnNoFromServer() == 5) {
 				g.setColor(sheep);
 			}
-
-
-
 
 
 			g.fillPolygon(shapex, shapey, 6);
@@ -100,21 +110,27 @@ public class Hexagon extends JPanel implements MouseListener {
 		for (int b = 0; b < 6; b++) {
 			middlearray[b].paint(g);
 
-			
-			for(int i=0 ;i<10;i++){
-			if (Grid.hus[i] != null) {
-				Grid.hus[i].paint(g);
-			}
-			}
-			for(int i=0 ;i<10;i++) {
-				if (Grid.vej[i] != null) {
-					Grid.vej[i].paint(g);
+
+			for (int i = 0; i < 10; i++) {
+				if (Grid.hus[i] != null) {
+					Grid.hus[i].paint(g);
 				}
 			}
+				for (int i = 0; i < 10; i++) {
+					if (Grid.by[i] != null) {
+						Grid.by[i].paint(g);
+					}
+
+				}
+				for (int i = 0; i < 10; i++) {
+					if (Grid.vej[i] != null) {
+						Grid.vej[i].paint(g);
+					}
+				}
+			}
+			g.drawImage(image, _posy - 20, _posx - 20, null);
+
 		}
-		g.drawImage(image, _posy - 20 , _posx - 20, null);
-		
-	}
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
@@ -132,6 +148,7 @@ public class Hexagon extends JPanel implements MouseListener {
 			if (dist(mx, shapex[l] , my, shapey[l]) <= 20) {
 
 				Grid.hus[Grid.housecounter] = new House(mx, my);
+				middlearray[l].setlamp2(true);
 				middlearray[l].setlamp(true);
 				System.out.println("house placed on grid");
 
@@ -144,6 +161,27 @@ public class Hexagon extends JPanel implements MouseListener {
 			}
 		}
 		///++++++housebuyer+++++/////
+
+
+		///++++++townbuyer+++++/////
+		if (Buying.townactive) {
+			//checks if you are pressing a cornerpoint
+			for (int l = 0; l < 6; l++) {
+
+				if (dist(mx, shapex[l] , my, shapey[l]) <= 20 && middlearray[l]._lamp2==true) {
+
+					Grid.by[Grid.towncounter] = new Town(mx, my);
+					System.out.println("town placed on grid");
+
+					//Main.houseTempX = Grid.hus[Grid.housecounter]._xpos;
+					//Main.houseTempY = Grid.hus[Grid.housecounter]._ypos;
+					//Main.houseSend = true;
+					Grid.towncounter+=1;
+					Buying.townactive = false;
+				}
+			}
+		}
+		///++++++townbuyer+++++/////
 		
 		///+++roadbuyer+++////
 		if (Buying.roadactive) {
