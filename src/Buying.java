@@ -16,12 +16,6 @@ import javax.swing.JPanel;
 		 static boolean roadactive = false, houseactive = false, townactive = false;
 	
 		Buying(){
-			Player.resources[0] = 10;
-			Player.resources[1] = 10;
-			Player.resources[2] = 10;
-			Player.resources[3] = 10;
-			Player.resources[4] = 10;
-			Player.resources[5] = 10;
 
 			trading = new Trading();
 

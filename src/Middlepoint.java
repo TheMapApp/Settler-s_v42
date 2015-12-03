@@ -46,7 +46,9 @@ public class Middlepoint {
 	 }
 	
 	public void paint(Graphics g) {
+
 		Graphics2D g2 = (Graphics2D) g;
+		g2.setStroke(new BasicStroke(2));
 		// draws the ellipse
 		g.setColor(_color);
 		g2.setStroke(new BasicStroke(2));

@@ -4,19 +4,32 @@ import java.awt.Graphics;
 import javax.swing.JFrame;
 
 public class Player {
-	static int [] resources= new int [6]; // an array that stores each player's resources and victory points
+
 	// this is the constructor for the player
 	
 	private int playerId;
 	private boolean longestRoad;
 	private boolean Playersturn;
 	static Color _Playercolor= new Color(255,0,0);
-	
+	static int [] resources= new int [6]; // an array that stores each player's resources and victory points
+
+
+
+
+
+
 	public Player(int id)
 	{
 		playerId=id;
 		resources[5]=0;
 		setcolor(3);
+
+		resources[0] = 10;
+		resources[1] = 10;
+		resources[2] = 10;
+		resources[3] = 10;
+		resources[4] = 10;
+		resources[5] = 10;
 
 	}
 	//this function initialize an array at the start of the game
