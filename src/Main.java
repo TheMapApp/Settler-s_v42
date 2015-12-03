@@ -140,8 +140,8 @@ public class Main extends JPanel {
              townSend = false;
          }
          while(addHouseX && addHouseY){
-             Grid.hus[Grid.housecounter] = new House(houseX, houseY, 1);
-             Grid.housecounter+=1;
+             Grid.enemyhus[Grid.enemyhousecounter] = new House(houseX, houseY, 1);
+             Grid.enemyhousecounter+=1;
              Grid.updater=true;
              addHouseX = false;
              addHouseY = false;
