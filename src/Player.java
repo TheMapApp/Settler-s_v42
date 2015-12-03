@@ -63,6 +63,18 @@ public class Player {
 	}
 
 
+	public void paintPlayer(Graphics g){
+		g.drawString("Player "+ playerId +":",25,25);
+		g.drawString("Brick: "+resources[0],25,45);
+		g.drawString("Wheat: "+resources[4],25,65);
+		g.drawString("Stone: "+resources[3],25,85);
+		g.drawString("Ship: "+resources[2],25,105);
+		g.drawString("Wheat: "+resources[1],25,125);
+		g.drawString("Points: "+resources[5],25,145);
+
+	}
+
+
 	public static void setcolor(int k )
 	{
 		if(k == 1) {

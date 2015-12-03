@@ -36,7 +36,7 @@ public class Main extends JPanel {
     public static String ipconnect;
     public static int tcpPort = 54555, udpPort = 54555;
     public boolean connected = true;
-    Player p1 = new Player(1);
+    static Player p1 = new Player(1);
 
     // CLIENT - SERVER STUFF END
 
@@ -161,40 +161,75 @@ public class Main extends JPanel {
 		 //buy.paint(g);//paints the circles for buttons
 
 		 buy.paint(g);//paints the circles for buttons
-		// p1.paintPlayer(g);
+		p1.paintPlayer(g);
 		 
 	    }
 	
 
 
-	 public static void main(String[] args) {
+
+
+    public static void main (String[]args){
+
 //sizing of the gamemap
-	        int width = 800;
-	        int height = 600;
+        int width = 800;
+        int height = 600;
 
-         JFrame frame = new JFrame("Settler's"); //create a new window and set title on window
-	        frame.setSize(width, height); //set size of window
-	        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //set the window to close when the cross in the corner is pressed
-	          
-	 
-	       Main m = new Main(width,height-22);
-	        frame.add(m);
-	        frame.setVisible(true); //make the window visible
-	        
-	        while (true) { //keep running a loop
-	            //each time the loop is run do
-	        	  m.update();
-	            try {
-	                Thread.sleep(30); //stops this part of the program for 10 milliseconds to avoid the loop locking everything. Now the screen has time to update content etc.
-	            } catch (InterruptedException e) {
-	                e.printStackTrace();
-	            }
 
-	        }
-	        
-	    	
 
-	    }
+
+        if (p1.checkPlayersTurn(1) == true) {
+            JFrame frame = new JFrame("Settler's"); //create a new window and set title on window
+            frame.setSize(width, height); //set size of window
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //set the window to close when the cross in the corner is pressed
+
+
+            Main m = new Main(width, height - 22);
+            frame.add(m);
+            frame.setVisible(true); //make the window visible
+
+            while (true) { //keep running a loop
+                //each time the loop is run do
+                m.update();
+                try {
+                    Thread.sleep(30); //stops this part of the program for 10 milliseconds to avoid the loop locking everything. Now the screen has time to update content etc.
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        } else {
+            JFrame frm = new JFrame();
+            frm.setSize(width, height);
+            frm.setBackground(Color.BLACK);
+            Main mn = new Main(width, height - 22);
+            frm.add(mn);
+            frm.setVisible(true);
+
+        }
+
+
+
+
+
+    JFrame frame = new JFrame("Settler's"); //create a new window and set title on window
+    frame.setSize(width, height); //set size of window
+    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //set the window to close when the cross in the corner is pressed
+
+
+    Main m = new Main(width, height - 22);
+    frame.add(m);
+    frame.setVisible(true); //make the window visible
+
+    while (true) { //keep running a loop
+        //each time the loop is run do
+        m.update();
+        try {
+            Thread.sleep(30); //stops this part of the program for 10 milliseconds to avoid the loop locking everything. Now the screen has time to update content etc.
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+    }
 	
 	
 }
