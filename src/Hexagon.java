@@ -130,6 +130,11 @@ public class Hexagon extends JPanel implements MouseListener {
 				}
 			}
 				for (int i = 0; i < 10; i++) {
+					if (Grid.enemyhus[i] != null) {
+						Grid.enemyhus[i].paint(g);
+					}
+			}
+				for (int i = 0; i < 10; i++) {
 					if (Grid.by[i] != null) {
 						Grid.by[i].paint(g);
 					}
@@ -157,27 +162,50 @@ public class Hexagon extends JPanel implements MouseListener {
 
         if(Main.turn == true) {
             ///++++++housebuyer+++++/////
-            if (Buying.houseactive) {
-                //checks if you are pressing a cornerpoint
-                for (int l = 0; l < 6; l++) {
+			if(Grid.housecounter<2){
 
-                    if (dist(mx, shapex[l], my, shapey[l]) <= 20) {
+				if (Buying.houseactive) {
+					//checks if you are pressing a cornerpoint
+					for (int l = 0; l < 6; l++) {
+
+						if (dist(mx, shapex[l], my, shapey[l]) <= 20) {
 
 
-                        Grid.hus[Grid.housecounter] = new House(mx, my, 1);
-                        Grid.hus[Grid.housecounter].myhouse = true;
-                        middlearray[l].setlamp2(true);
-                        middlearray[l].setlamp(true);
-                        System.out.println("house placed on grid");
+							Grid.hus[Grid.housecounter] = new House(mx, my, 1);
+							Grid.hus[Grid.housecounter].myhouse = true;
+							middlearray[l].setlamp2(true);
+							middlearray[l].setlamp(true);
+							System.out.println("house placed on grid");
 
-                        Main.houseTempX = Grid.hus[Grid.housecounter]._xpos;
-                        Main.houseTempY = Grid.hus[Grid.housecounter]._ypos;
-                        Main.houseSend = true;
-                        Grid.housecounter += 1;
-                        Buying.houseactive = false;
-                    }
-                }
-            }
+							Main.houseTempX = Grid.hus[Grid.housecounter]._xpos;
+							Main.houseTempY = Grid.hus[Grid.housecounter]._ypos;
+							Main.houseSend = true;
+							Grid.housecounter += 1;
+							Buying.houseactive = false;
+						}
+					}
+				}
+			} else if (Buying.houseactive) {
+				//checks if you are pressing a cornerpoint
+				for (int l = 0; l < 6; l++) {
+
+					if (dist(mx, shapex[l], my, shapey[l]) <= 20 && middlearray[l]._lamp==true ) {
+
+
+						Grid.hus[Grid.housecounter] = new House(mx, my, 1);
+						Grid.hus[Grid.housecounter].myhouse = true;
+						middlearray[l].setlamp2(true);
+						middlearray[l].setlamp(true);
+						System.out.println("house placed on grid");
+
+						Main.houseTempX = Grid.hus[Grid.housecounter]._xpos;
+						Main.houseTempY = Grid.hus[Grid.housecounter]._ypos;
+						Main.houseSend = true;
+						Grid.housecounter += 1;
+						Buying.houseactive = false;
+					}
+				}
+			}
             ///++++++housebuyer+++++/////
 
 
@@ -189,11 +217,17 @@ public class Hexagon extends JPanel implements MouseListener {
                     if (dist(mx, shapex[l], my, shapey[l]) <= 20 && middlearray[l]._lamp2 == true) {
 
                         Grid.by[Grid.towncounter] = new Town(mx, my);
-                        System.out.println("town placed on grid");
+                        System.out.println("town placed on grid at" + mx + "," + my);
 
                         //Main.houseTempX = Grid.hus[Grid.housecounter]._xpos;
                         //Main.houseTempY = Grid.hus[Grid.housecounter]._ypos;
                         //Main.houseSend = true;
+
+                        //Main.townTempX = Grid.by[Grid.towncounter]._xpos;
+                        //Main.townTempY = Grid.by[Grid.towncounter]._ypos;
+                        Main.townTempX = Grid.by[Grid.towncounter]._xpos;
+                        Main.townTempY = Grid.by[Grid.towncounter]._ypos;
+                        Main.townSend = true;
                         Grid.towncounter += 1;
                         Buying.townactive = false;
                     }
@@ -286,12 +320,12 @@ public class Hexagon extends JPanel implements MouseListener {
 	}
 
 
-	public int returnNoFromServer() {
-            int number = 0;
-            number = resType[aux];
-            aux += 1;
+	public int returnNoFromServer() { // returns a number from the server
+            int number = 0; // initializes an integer with 0;
+            number = resType[aux]; // stores in number the value from aux position from resType array
+            aux += 1;// increments aux with 1
         //if(aux > 18) aux = 0;
-		return number;
+		return number; // return the number
 	}
 	
 	
