@@ -9,6 +9,7 @@ public class Town {
     int _xpos;
     int _ypos;
     int enemyColor;
+    boolean myTown = false;
     Color _color= Player._Playercolor;
 
     Town(int xpos,int ypos){

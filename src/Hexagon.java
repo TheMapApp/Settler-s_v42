@@ -72,7 +72,7 @@ public class Hexagon extends JPanel implements MouseListener {
 		for (int l = 0; l < 6; l++) {
 			for (int i = 0; i < 10; i++) {
 				if (Grid.by[i] != null) {
-					if (dist(Grid.by[i]._xpos, shapex[l], Grid.by[i]._ypos, shapey[l]) <= 20) {
+					if (dist(Grid.by[i]._xpos, shapex[l], Grid.by[i]._ypos, shapey[l]) <= 20 &&Grid.by[i].myTown == true) {
 						itsontown = true;
 					}
 				}
@@ -250,6 +250,7 @@ public class Hexagon extends JPanel implements MouseListener {
                     if (dist(mx, shapex[l], my, shapey[l]) <= 20 && middlearray[l]._lamp2 == true) {
 
                         Grid.by[Grid.towncounter] = new Town(mx, my);
+						Grid.by[Grid.towncounter].myTown = true;
                         System.out.println("town placed on grid at" + mx + "," + my);
 
                         //Main.houseTempX = Grid.hus[Grid.housecounter]._xpos;
