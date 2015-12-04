@@ -1,6 +1,8 @@
 import javax.swing.*;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.IOException;
@@ -8,9 +10,9 @@ import java.util.Scanner;
 
 
 
-public class Main extends JPanel {
+public class Main extends JPanel implements ActionListener{
 	Image image1;
-//Does this work?
+    Image waitingScreen;
 // CLIENT - SERVER STUFF START
 
     public static boolean houseSend = false;
@@ -44,7 +46,7 @@ public class Main extends JPanel {
 
     public static String ipconnect;
     public static int tcpPort = 54555, udpPort = 54555;
-    public boolean connected = true;
+    public boolean connected = false;
     public static Player p1 = new Player(1);
 
     public static boolean turn = false;
@@ -60,6 +62,7 @@ public class Main extends JPanel {
     public static boolean lobby = false;
     public static boolean gameStart = false;
     Scanner reader = new Scanner(System.in);
+    public static JTextField jTextField;
 
     // LOBBY STUFF END
 
@@ -82,14 +85,22 @@ public class Main extends JPanel {
 
 		 this.addMouseListener(buy);
 
-
+         jTextField = new JTextField("ENTER THE IP YOU WISH TO CONNECT TO");
+         jTextField.addActionListener(this);
 
 
 
 		 ImageIcon background = new ImageIcon("images/background.jpg");
 		  image1 = background.getImage();
+
+         ImageIcon pirate = new ImageIcon("image/waitingScreen.jpg");
+         waitingScreen = pirate.getImage();
 	 }
+
+
 	 public void update(){
+
+
          //Ressource-fordeler
       if (bob == true) {
           gamemap.resourcedister();
@@ -111,7 +122,10 @@ public class Main extends JPanel {
          }
          if(connected){
              try {
-                 connect.connect("127.0.0.1");
+                 connect.connect(ipconnect);
+                 jTextField.setVisible(false);
+                 //gameStart = true;
+                 Grid.updater = true;
                  //connect.connect("192.168.137.116");
                  connected = false;
              } catch (IOException e) {
@@ -173,12 +187,8 @@ public class Main extends JPanel {
 	 }
 
 	    public void paint(Graphics g) {
-           /*JTextField v0TextField = new JTextField ("Enter IP");
-
-            String strV0TextBox = v0TextField.getText();
-
-            double initialvelocity = Double.parseDouble(strV0TextField);
-            */
+            //else if(!gameStart){
+            //}
             if(gameStart) {
                 g.drawImage(image1, 0, 0, null);
 
@@ -200,10 +210,12 @@ public class Main extends JPanel {
 		p1.paintPlayer(g);
             Grid.updater = true;
             if(Main.turn == false){
-                g.setColor(new Color(0,0,0, 168));
+                g.setColor(new Color(0,0, 0, 168));
                 g.fillRect(0,0,800,600);
                 Grid.updater = true;
                 }
+            g.drawImage(waitingScreen, 0, 0 , null);
+
             }
 
 
@@ -214,54 +226,25 @@ public class Main extends JPanel {
 
     public static void main (String[]args){
 
+
 //sizing of the gamemap
         int width = 800;
         int height = 600;
-
-
-
-
-        if (p1.checkPlayersTurn(1) == true) { //checkPlayersTurn needs information from the server
-            JFrame frame = new JFrame("Settler's"); //create a new window and set title on window
-            frame.setSize(width, height); //set size of window
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //set the window to close when the cross in the corner is pressed
-
-
-            Main m = new Main(width, height - 22);
-            frame.add(m);
-            frame.setVisible(true); //make the window visible
-
-            while (true) { //keep running a loop
-                //each time the loop is run do
-                m.update();
-                try {
-                    Thread.sleep(30); //stops this part of the program for 10 milliseconds to avoid the loop locking everything. Now the screen has time to update content etc.
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        } else {
-            JFrame frm = new JFrame();
-            frm.setSize(width, height);
-            frm.setBackground(Color.BLACK);
-            Main mn = new Main(width, height - 22);
-            frm.add(mn);
-            frm.setVisible(true);
-
-        }
-
-
-
-
-
     JFrame frame = new JFrame("Settler's"); //create a new window and set title on window
+        JFrame lobby = new JFrame("Lobby's"); //create a new window and set title on window
     frame.setSize(width, height); //set size of window
+        lobby.setSize(300,100);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //set the window to close when the cross in the corner is pressed
 
 
-    Main m = new Main(width, height - 22);
+
+        Main m = new Main(width, height - 22);
     frame.add(m);
+        if(!gameStart) {
+            lobby.add(jTextField);
+        }
     frame.setVisible(true); //make the window visible
+        lobby.setVisible(true); //make the window visible
 
     while (true) { //keep running a loop
         //each time the loop is run do
@@ -272,5 +255,12 @@ public class Main extends JPanel {
             e.printStackTrace();
             }
         }
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        ipconnect = jTextField.getText();
+        jTextField.selectAll();
+        connected = true;
     }
 }

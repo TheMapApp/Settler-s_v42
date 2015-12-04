@@ -1,8 +1,10 @@
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-import javax.swing.JFrame;
+import javax.swing.*;
 
-public class Player {
+public class Player{
 
 	// this is the constructor for the player
 	
@@ -11,8 +13,6 @@ public class Player {
 	private boolean Playersturn;// declares a boolean variable
 	static Color _Playercolor= new Color(255,0,0); // declar a variavle of the type color
 	static int [] resources= new int [6]; // an array that stores each player's resources and victory points
-
-
 
 
 
@@ -106,6 +106,7 @@ public class Player {
 			_Playercolor= new Color(12, 190, 199);
 		}
 	}
+
 
 }
 	
