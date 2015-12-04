@@ -11,7 +11,7 @@ public class Connecter extends Listener {
 	public Client client;
 
 	public void connect(String ip) throws IOException {
-        Log.set(Log.LEVEL_DEBUG);
+        //Log.set(Log.LEVEL_DEBUG);
 
         // SERVER CLIENT STUFF
 		client = new Client();
@@ -28,6 +28,8 @@ public class Connecter extends Listener {
         kryo.register(ResType.class);
         kryo.register(Turn.class);
         kryo.register(DiceRoll.class);
+        kryo.register(TownX.class);
+        kryo.register(TownY.class);
 
 
         client.start();
@@ -44,6 +46,17 @@ public class Connecter extends Listener {
 		client.sendTCP(posY);
         System.out.println("Sent house package");
 	}
+
+    public void sendTownPacket(int tempX, int tempY){
+        TownX posX = new TownX();
+        TownY posY = new TownY();
+        posX.townX = tempX;
+        posY.townY = tempY;
+        System.out.println(tempX + "," + tempY);
+        client.sendTCP(posX);
+        client.sendTCP(posY);
+        System.out.println("Sent town package");
+    }
 
     public void sendRoadPacket(int tempX1, int tempX2, int tempY1, int tempY2){
         RoadX1 posX1 = new RoadX1();
@@ -76,7 +89,6 @@ public class Connecter extends Listener {
             Hexagon.resType = packet.resType;
             System.out.println("ResType package " + packet.resType[0]);
         }
-
         if(p instanceof Ressources){
             Ressources packet = (Ressources) p;
             Grid.shuffledArray = packet.res;
@@ -84,11 +96,9 @@ public class Connecter extends Listener {
             System.out.println("Received shuffled array");
             System.out.println(packet.res[2]);
         }
-
 		if (p instanceof HousePosX) {
             HousePosX packet = (HousePosX) p;
             Main.houseX = packet.x;
-            Player.setcolor(packet.x);
             Main.addHouseX = true;
             System.out.println("Received x");
         }
@@ -139,6 +149,18 @@ public class Connecter extends Listener {
             Main.roll = packet.dieRoll;
             Main.bob = true;
             System.out.println("Received dieroll and it is: " + packet.dieRoll);
+        }
+        if (p instanceof TownX) {
+            TownX packet = (TownX) p;
+            Main.townTempX = packet.townX;
+            Main.addTownX = true;
+            System.out.println("Received TownX " + packet.townX + "and" + Main.townX);
+        }
+        if (p instanceof TownY) {
+            TownY packet = (TownY) p;
+            Main.townTempY = packet.townY;
+            Main.addTownY = true;
+            System.out.println("Received TownY " + packet.townY + "and" + Main.townY);
         }
 	}
 }

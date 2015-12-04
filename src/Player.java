@@ -6,10 +6,10 @@ public class Player {
 
 	// this is the constructor for the player
 	
-	private int playerId;
-	private boolean longestRoad;
-	private boolean Playersturn;
-	static Color _Playercolor= new Color(255,0,0);
+	private int playerId; // decares a variable of the type int
+	private boolean longestRoad; // declares a boolean variable
+	private boolean Playersturn;// declares a boolean variable
+	static Color _Playercolor= new Color(255,0,0); // declar a variavle of the type color
 	static int [] resources= new int [6]; // an array that stores each player's resources and victory points
 
 
@@ -19,16 +19,16 @@ public class Player {
 
 	public Player(int id)
 	{
-		playerId=id;
-		resources[5]=0;
-		setcolor(3);
+		playerId=id; // initializes the player's id
+		resources[5]=0; // sets the victory points to 0
+		setcolor(3);// set the color of the player
 
-		resources[0] = 10;//wheat
-		resources[1] = 10;//stone
-		resources[2] = 10;//brick
-		resources[3] = 10;//wood
-		resources[4] = 10;//sheep
-		resources[5] = 0;//victory point
+		resources[0] = 10;//wheat- each player gets 2 of it
+		resources[1] = 10;//stone - each player gets 2 of it
+		resources[2] = 10;//brick - each player gets 2 of it
+		resources[3] = 10;//wood - each player gets 2 of it
+		resources[4] = 10;//sheep -each player gets 2 of it
+		resources[5] = 0;//victory point- no victory points
 
 	}
 	//this function initialize an array at the start of the game
@@ -44,7 +44,7 @@ public class Player {
 	public int CheckWin(){
 		
 		if(resources[5]==10) return 1; 
-		else return 0;
+		else return 0; // else return 0 wich means that the player doesn't have a victory ponints
 		
 	}
 	//methods for checking if the player has the longest road
@@ -66,25 +66,25 @@ public class Player {
 		
 		public int getId (){
 			return playerId;
-		}
+		} // returns an integers wich represents the player's id
 		
-		public boolean checkPlayersTurn (int PlayersTurn){
+		public boolean checkPlayersTurn (int PlayersTurn){ // checks if is the player's turn
 		
-			 if (PlayersTurn==1) return true;
-			 else return false;
+			 if (PlayersTurn==1) return true; // if it is returns true
+			 else return false;// othewise returns false
 	}
 
 
-	public void paintPlayer(Graphics g){
-		g.setColor(Color.white);
-		g.setFont(new Font("Cambria",Font.BOLD, 14));
-		g.drawString("Player "+ Main.id +":",25,25);
-		g.drawString("Wheat: "+resources[0],25,40);
-		g.drawString("Sheep: "+resources[4],25,55);
-		g.drawString("Wood: "+resources[3],25,70);
-		g.drawString("Brick: "+resources[2],25,85);
-		g.drawString("Stone: "+resources[1],25,100);
-		g.drawString("Points: "+resources[5],25,115);
+	public void paintPlayer(Graphics g){ // prints the resources on the window
+		g.setColor(Color.white); // sets the color of the font to white
+		g.setFont(new Font("Cambria",Font.BOLD, 14)); // sets the font to cambria, bold, of the size 14
+		g.drawString("Player "+ Main.id +":",25,25);// prints the text on the window
+		g.drawString("Wheat: "+resources[0],25,40);// prints the text on the window
+		g.drawString("Sheep: "+resources[4],25,55);// prints the text on the window
+		g.drawString("Wood: "+resources[3],25,70);// prints the text on the window
+		g.drawString("Brick: "+resources[2],25,85);// prints the text on the window
+		g.drawString("Stone: "+resources[1],25,100);// prints the text on the window
+		g.drawString("Points: "+resources[5],25,115);// prints the text on the window
 
 
 	}
@@ -109,9 +109,6 @@ public class Player {
 }
 	
 	
-	// depending on where the player has the settlements he will get resources
-	//the code needs to be changed 
-	//a function that checks where the player has settlements and/or cities and updates the resources array
-	
+
     
 
