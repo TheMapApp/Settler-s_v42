@@ -76,17 +76,18 @@ public class Player {
 
 
 	public void paintPlayer(Graphics g){ // prints the resources on the window
-		g.setColor(Color.white); // sets the color of the font to white
-		g.setFont(new Font("Cambria",Font.BOLD, 14)); // sets the font to cambria, bold, of the size 14
-		g.drawString("Player "+ Main.id +":",25,25);// prints the text on the window
-		g.drawString("Wheat: "+resources[0],25,40);// prints the text on the window
-		g.drawString("Sheep: "+resources[4],25,55);// prints the text on the window
-		g.drawString("Wood: "+resources[3],25,70);// prints the text on the window
-		g.drawString("Brick: "+resources[2],25,85);// prints the text on the window
-		g.drawString("Stone: "+resources[1],25,100);// prints the text on the window
-		g.drawString("Points: "+resources[5],25,115);// prints the text on the window
+        if(Main.gameStart) {
+            g.setColor(Color.white); // sets the color of the font to white
+            g.setFont(new Font("Cambria", Font.BOLD, 14)); // sets the font to cambria, bold, of the size 14
+            g.drawString("Player " + Main.id + ":", 25, 25);// prints the text on the window
+            g.drawString("Wheat: " + resources[0], 25, 40);// prints the text on the window
+            g.drawString("Sheep: " + resources[4], 25, 55);// prints the text on the window
+            g.drawString("Wood: " + resources[3], 25, 70);// prints the text on the window
+            g.drawString("Brick: " + resources[2], 25, 85);// prints the text on the window
+            g.drawString("Stone: " + resources[1], 25, 100);// prints the text on the window
+            g.drawString("Points: " + resources[5], 25, 115);// prints the text on the window
 
-
+        }
 	}
 
 

@@ -30,53 +30,55 @@ public class Buying extends JPanel implements MouseListener{
 
     //paint method where images are drawn
     public void paint(Graphics g) {
+        if (Main.gameStart) {
 
-        //width and height of the game map in order to use it for coordinates of buttons
-        int width = 800;
-        int height = 600;
+            //width and height of the game map in order to use it for coordinates of buttons
+            int width = 800;
+            int height = 600;
 
-        //gives the directory of the image file that is going to be drawn
-        ImageIcon turns = new ImageIcon("images/turns.png");
-        //accesses the image from the location previously mentioned
-        imageTurning = turns.getImage();
-        //the image is drawn at the specified location on the window
-        g.drawImage(imageTurning, width - 780 , height - 150, null);
-
-
-        //gives the directory of the image file that is going to be drawn for the road, settlement and city buttons respectively
-        ImageIcon road = new ImageIcon("images/Road.png");
-        ImageIcon settlement = new ImageIcon("images/Settlement.png");
-        ImageIcon city = new ImageIcon("images/City.png");
+            //gives the directory of the image file that is going to be drawn
+            ImageIcon turns = new ImageIcon("images/turns.png");
+            //accesses the image from the location previously mentioned
+            imageTurning = turns.getImage();
+            //the image is drawn at the specified location on the window
+            g.drawImage(imageTurning, width - 780, height - 150, null);
 
 
-        //accesses the image from the locations previously mentioned
-        //each image is recognized by its name: imageRoad prints road buttons, etc.
-        imageRoad = road.getImage();
-        imageSettlement = settlement.getImage();
-        imageCity = city.getImage();
+            //gives the directory of the image file that is going to be drawn for the road, settlement and city buttons respectively
+            ImageIcon road = new ImageIcon("images/Road.png");
+            ImageIcon settlement = new ImageIcon("images/Settlement.png");
+            ImageIcon city = new ImageIcon("images/City.png");
 
 
-        //the images are drawn at the specified location on the game map
-        g.drawImage(imageRoad, width - 100, height - 120 , null);
-        g.drawImage(imageSettlement, width - 100, height - 200 , null);
-        g.drawImage(imageCity, width - 100, height - 280 , null);
+            //accesses the image from the locations previously mentioned
+            //each image is recognized by its name: imageRoad prints road buttons, etc.
+            imageRoad = road.getImage();
+            imageSettlement = settlement.getImage();
+            imageCity = city.getImage();
 
 
-        //if any of the road, settlement or city button is pressed, then draw a new window which is a pop-up serving as confirmation
-        if(window==true){
-            //create a confirmation window
-            g.setColor(Color.GRAY);
-            //draw the confirmation window
-            g.drawRect(200, 200, 400, 200);
-            //draw the picture that serves as a confirmation window from the location given at x = 200 and y = 200
-            ImageIcon popUp = new ImageIcon("images/itempopup.png");
-            imagePopUp = popUp.getImage();
-            g.drawImage(imagePopUp, 200, 200, null);
+            //the images are drawn at the specified location on the game map
+            g.drawImage(imageRoad, width - 100, height - 120, null);
+            g.drawImage(imageSettlement, width - 100, height - 200, null);
+            g.drawImage(imageCity, width - 100, height - 280, null);
+
+
+            //if any of the road, settlement or city button is pressed, then draw a new window which is a pop-up serving as confirmation
+            if (window == true) {
+                //create a confirmation window
+                g.setColor(Color.GRAY);
+                //draw the confirmation window
+                g.drawRect(200, 200, 400, 200);
+                //draw the picture that serves as a confirmation window from the location given at x = 200 and y = 200
+                ImageIcon popUp = new ImageIcon("images/itempopup.png");
+                imagePopUp = popUp.getImage();
+                g.drawImage(imagePopUp, 200, 200, null);
+
+
+            }
 
 
         }
-
-
     }
 
 

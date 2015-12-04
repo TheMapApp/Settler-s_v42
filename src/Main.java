@@ -57,7 +57,7 @@ public class Main extends JPanel {
 
     // LOBBY STUFF START
 
-    public static boolean lobby = true;
+    public static boolean lobby = false;
     public static boolean gameStart = false;
     Scanner reader = new Scanner(System.in);
 
@@ -173,20 +173,27 @@ public class Main extends JPanel {
 	 }
 
 	    public void paint(Graphics g) {
-        g.drawImage(image1, 0, 0, null);
+           /*JTextField v0TextField = new JTextField ("Enter IP");
 
-		 // this for loop draws each hexagon
-		 for(int k =0; k<5;k++){
-			 for(int l =0; l<5;l++){
+            String strV0TextBox = v0TextField.getText();
 
-		 // some of the places in the array are empty because of the 3,4,5,4,3 structure of the game map
-		if(gamemap.hexarray[k][l]!=null){
-            //this.addMouseListener(gamemap.hexarray[k][l]);
-		    gamemap.hexarray[k][l].paint(g);
-				 }
-			 }
-		 }
+            double initialvelocity = Double.parseDouble(strV0TextField);
+            */
+            if(gameStart) {
+                g.drawImage(image1, 0, 0, null);
 
+                // this for loop draws each hexagon
+                for (int k = 0; k < 5; k++) {
+                    for (int l = 0; l < 5; l++) {
+
+                        // some of the places in the array are empty because of the 3,4,5,4,3 structure of the game map
+                        if (gamemap.hexarray[k][l] != null) {
+                            //this.addMouseListener(gamemap.hexarray[k][l]);
+                            gamemap.hexarray[k][l].paint(g);
+                        }
+                    }
+                }
+            }
 		 //buy.paint(g);//paints the circles for buttons
 
 		 buy.paint(g);//paints the circles for buttons
