@@ -79,6 +79,29 @@ public class Hexagon extends JPanel implements MouseListener {
 			}
 		}
 
+
+		for (int l = 0; l < 6; l++) {
+			for (int i = 0; i < 10; i++) {
+				if (Grid.hus[i] != null) {
+					if (dist(Grid.hus[i]._xpos, shapex[l], Grid.hus[i]._ypos, shapey[l]) <= 90) {
+						middlearray[l].occupied = true;
+
+					}
+				}
+			}
+		}
+
+		for (int l = 0; l < 6; l++) {
+			for (int i = 0; i < 10; i++) {
+				if (Grid.enemyhus[i] != null) {
+					if (dist(Grid.enemyhus[i]._xpos, shapex[l], Grid.enemyhus[i]._ypos, shapey[l]) <= 90) {
+						middlearray[l].occupied = true;
+
+					}
+				}
+			}
+		}
+
 		//dicechecker
 
 
@@ -157,55 +180,65 @@ public class Hexagon extends JPanel implements MouseListener {
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-        int mx = e.getX();
-        int my = e.getY();
+		int mx = e.getX();
+		int my = e.getY();
 
-        if(Main.turn == true) {
-            ///++++++housebuyer+++++/////
-			if(Grid.housecounter<2){
+		if (Main.turn == true) {
+			///++++++housebuyer+++++/////
+			double disthouse;
 
 				if (Buying.houseactive) {
-					//checks if you are pressing a cornerpoint
-					for (int l = 0; l < 6; l++) {
 
-						if (dist(mx, shapex[l], my, shapey[l]) <= 20) {
+					if (Grid.housecounter < 2) {
 
 
-							Grid.hus[Grid.housecounter] = new House(mx, my, 1);
-							Grid.hus[Grid.housecounter].myhouse = true;
-							middlearray[l].setlamp2(true);
-							middlearray[l].setlamp(true);
-							System.out.println("house placed on grid");
+						//checks if you are pressing a cornerpoint
+						for (int l = 0; l < 6; l++) {
 
-							Main.houseTempX = Grid.hus[Grid.housecounter]._xpos;
-							Main.houseTempY = Grid.hus[Grid.housecounter]._ypos;
-							Main.houseSend = true;
-							Grid.housecounter += 1;
-							Buying.houseactive = false;
+							if (dist(mx, shapex[l], my, shapey[l]) <= 20 && middlearray[l].occupied== false ) {
+
+
+								Grid.hus[Grid.housecounter] = new House(mx, my, 1);
+								Grid.hus[Grid.housecounter].myhouse = true;
+								middlearray[l].setlamp2(true);
+								middlearray[l].setlamp(true);
+								System.out.println("house placed on grid");
+
+								Main.houseTempX = Grid.hus[Grid.housecounter]._xpos;
+								Main.houseTempY = Grid.hus[Grid.housecounter]._ypos;
+								Main.houseSend = true;
+								Grid.housecounter += 1;
+								Buying.houseactive = false;
+							}
+						}
+
+
+					} else {
+						//checks if you are pressing a cornerpoint
+						for (int l = 0; l < 6; l++) {
+
+							if (dist(mx, shapex[l], my, shapey[l]) <= 20 && middlearray[l]._lamp == true  && middlearray[l].occupied== false) {
+
+
+								Grid.hus[Grid.housecounter] = new House(mx, my, 1);
+								Grid.hus[Grid.housecounter].myhouse = true;
+								middlearray[l].setlamp2(true);
+								middlearray[l].setlamp(true);
+								System.out.println("house placed on grid");
+
+								Main.houseTempX = Grid.hus[Grid.housecounter]._xpos;
+								Main.houseTempY = Grid.hus[Grid.housecounter]._ypos;
+								Main.houseSend = true;
+								Grid.housecounter += 1;
+								Buying.houseactive = false;
+							}
 						}
 					}
 				}
-			} else if (Buying.houseactive) {
-				//checks if you are pressing a cornerpoint
-				for (int l = 0; l < 6; l++) {
-
-					if (dist(mx, shapex[l], my, shapey[l]) <= 20 && middlearray[l]._lamp==true ) {
 
 
-						Grid.hus[Grid.housecounter] = new House(mx, my, 1);
-						Grid.hus[Grid.housecounter].myhouse = true;
-						middlearray[l].setlamp2(true);
-						middlearray[l].setlamp(true);
-						System.out.println("house placed on grid");
 
-						Main.houseTempX = Grid.hus[Grid.housecounter]._xpos;
-						Main.houseTempY = Grid.hus[Grid.housecounter]._ypos;
-						Main.houseSend = true;
-						Grid.housecounter += 1;
-						Buying.houseactive = false;
-					}
-				}
-			}
+
             ///++++++housebuyer+++++/////
 
 
@@ -299,6 +332,20 @@ public class Hexagon extends JPanel implements MouseListener {
 		// TODO Auto-generated method stub
 
 	}
+
+	public boolean housedist(int x1, int x2) {
+		for (int k = 0; k < Grid.housecounter; k++) {
+if(Grid.housecounter==0){
+
+	return true;
+}
+			 if (dist(x1,Grid.hus[k]._xpos,x2,Grid.hus[k]._ypos)>40) {
+				return true;
+			}
+		}
+		return false;
+	}
+
 
 	public double dist(int x1, int x2, int y1, int y2) {
 		double dist;

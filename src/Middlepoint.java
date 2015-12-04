@@ -7,6 +7,7 @@ public class Middlepoint {
 	int _posy;
 	boolean _lamp = false;
 	boolean _lamp2 = false;
+	boolean occupied = false;
 	Color _color= new Color(0,0,0);
 	
 	
