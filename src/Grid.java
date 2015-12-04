@@ -18,7 +18,7 @@ public class Grid {
 	public static Road[] vej = new Road[20];
 	static int housecounter =0;
     static int enemyhousecounter =0;
-	static int towncounter =1;
+	static int towncounter =0;
 	static int roadcounter =1;
 	
 	public Hexagon[][] hexarray = new Hexagon[5][5];
