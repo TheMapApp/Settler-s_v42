@@ -28,7 +28,7 @@ public class Player{
 		resources[2] = 10;//brick - each player gets 2 of it
 		resources[3] = 10;//wood - each player gets 2 of it
 		resources[4] = 10;//sheep -each player gets 2 of it
-		resources[5] = 0;//victory point- no victory points
+		resources[5] = 9;//victory point- no victory points
 
 	}
 	//this function initialize an array at the start of the game
@@ -88,6 +88,11 @@ public class Player{
             g.drawString("Points: " + resources[5], 25, 115);// prints the text on the window
 
         }
+
+		if(resources[5]>=10){
+			g.setFont(new Font("Cambria", Font.BOLD, 30));
+			g.drawString("YOU WIN!!! CONGRATULATIONS: " , 300, 400);
+		}
 	}
 
 
