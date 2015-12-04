@@ -114,32 +114,32 @@ public class Hexagon extends JPanel implements MouseListener {
 
 
 		if (itsontown == true ) {
-			g.setColor(_color);
-			g.fillPolygon(shapex, shapey, 6);
+			g.setColor(_color);// sets the color to green
+			g.fillPolygon(shapex, shapey, 6);// colors the hexagon
 		} else if (itson == true) {
-				g.setColor( new Color(199, 21, 197));
-				g.fillPolygon(shapex, shapey, 6);
+				g.setColor( new Color(199, 21, 197)); // sets the color to black
+				g.fillPolygon(shapex, shapey, 6); // colors the hexagon
 			} else {
 
 
-			if(colCode==1){
-				g.setColor(wheat);
+			if(colCode==1){ // if the number from the server is 1
+				g.setColor(wheat); // sets the color to yellow
 			}
-			if(colCode==2){
-				g.setColor(stone);
+			if(colCode==2){ // if the number from the server is 2
+				g.setColor(stone);// sets the color to grey
 			}
-			if(colCode==3){
-				g.setColor(brick);
+			if(colCode==3){ // if the number from the server is 3
+				g.setColor(brick);// sets the color to red
 			}
-			if(colCode==4){
-				g.setColor(wood);
+			if(colCode==4){ // if the number from the server is 4
+				g.setColor(wood);//sets the color to green
 			}
-			if(colCode==5){
-				g.setColor(sheep);
+			if(colCode==5){ // if the number from the server is 5
+				g.setColor(sheep);// sets the color to light green
 			}
 
 
-			g.fillPolygon(shapex, shapey, 6);
+			g.fillPolygon(shapex, shapey, 6); // colors the hexagon
 
 		}
 
